@@ -6,20 +6,19 @@
   font-family: "Montserrat", serif;
   display: flex;
   justify-content: center;
-  height: 100vh;
-  width: 60vh;
-  background-color: whitesmoke;
-  /* margin: auto; */
-  /* margin-top: 10%; */
-  /* border-radius: 50px; */
-  text-align: center;
   align-items: center;
-  opacity: 0.9;
   flex-direction: column;
+  width: 60vh;
+  padding: 40px 20px;
+  height: auto;
+  background-color: whitesmoke;
+  text-align: center;
+  opacity: 0.9;
+  border-radius: 20px;
 }
 
 .card-box a {
-  color: #000000;
+  color: #c4bbbb;
   display: flex;
   justify-content: center;
   font-size: 15px;
@@ -41,9 +40,7 @@
   padding: 0 1rem;
   border: 2px solid transparent;
   font-size: 1rem;
-  transition: border-color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
-    color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
-  backgr 0.2s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
+  transition: border-color 0.3s, color 0.3s;
   margin-bottom: 10%;
 }
 
@@ -54,10 +51,10 @@
   font-size: 25px;
   font-weight: bold;
   color: #05060f99;
-  transition: color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
+  transition: color 0.3s;
 }
 
-.label::placeholder{
+.label::placeholder {
   color: #171a2f99;
 }
 
@@ -75,11 +72,15 @@
 
 .banner-cadastro {
   height: 100vh;
+  width: 100%;
   color: white;
-  align-items: center;
+  display: flex;
+  justify-content: center;  
+  align-items: center;      
+  position: relative;
+
   background-size: cover;
   background-position: center;
-  justify-content: center;
 }
 
 .goBack {

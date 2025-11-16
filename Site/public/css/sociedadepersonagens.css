@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+
+:root {
+  --tamanho-header: 80px;
+  --tamanho-footer: 65px;
+  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+body {
+    min-height: 100vh;
+  background-color: #00000086;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+   height: var(--tamanho-header);
+  border-bottom: 2px solid #000;
+  background-color: rgba(0, 0, 0, 0.61); 
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  
+}
+
+.header .titulo {
+  background-image: url('../assets/icon/logosiyte.png');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: left;
+  width: 300px;
+  height: 80px;
+  cursor: pointer;
+  margin-right: 40px;
+}
+
+.navbar {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 69px;
+  flex: 1;
+  z-index: 100;
+}
+
+.navbar li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 15px;
+  transition: 0.3s;
+}
+
+.navbar li a:hover {
+  color: #ff0606;
+}
+
+.btn-login,
+.btn-cadastro {
+  background-color: #29282850;
+  color: #000000;
+  border: none;
+  border-radius: 10px;
+  padding: 8px 20px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-login:hover,
+.btn-cadastro:hover {
+  background-color: #000000;
+}
+
+.container {
+
+    
+}

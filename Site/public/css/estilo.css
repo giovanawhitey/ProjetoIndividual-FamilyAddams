@@ -25,7 +25,7 @@ body {
 .header {
    height: var(--tamanho-header);
   border-bottom: 2px solid #000;
-  background-color: rgba(0,0,0,0.9); 
+  background-color: rgba(0, 0, 0, 0.61); 
   position: fixed;
   top: 0;
   width: 100%;
@@ -74,7 +74,7 @@ body {
 
 .btn-login,
 .btn-cadastro {
-  background-color: #827f7f;
+  background-color: #29282850;
   color: #000000;
   border: none;
   border-radius: 10px;
@@ -142,7 +142,7 @@ body {
 }
 
 .box, .box2 {
-  background-color: #fff;
+  background-color: #ffffff88;
   padding: 32px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -194,7 +194,7 @@ body {
 }
  .texto-historia {
   width: 55%;
-  background-color: #fff;
+  background-color: #ffffff88;
   padding: 32px;
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0,0,0,0.2);
@@ -221,19 +221,21 @@ body {
 .conteudo-origem {
   display: flex;
   align-items: center;
-  gap: 30px;
    padding-bottom: 120px;
    margin: auto;
+    gap: 40px;
+    flex-wrap: nowrap
 }
 
 .imagem-quadrinho {
   background-color: rgba(255, 255, 255, 0.1); 
-  padding: 15px;
-  border-radius: 10px;
-  width: 40%;
-  display: flex;
-  justify-content: center;
-  margin: auto;
+  padding: 18px;
+    border-radius: 10px;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+    margin: auto
+  
 }
 
 .imagem-quadrinho img {
@@ -248,91 +250,6 @@ body {
   line-height: 1.5;
 }
 
-@keyframes slide {
-  0%   { transform: translateX(0); }
-  33%  { transform: translateX(0); }
-  38%  { transform: translateX(-100%); }
-  66%  { transform: translateX(-100%); }
-  71%  { transform: translateX(-200%); }
-  100% { transform: translateX(-200%); }
-}
-
-
-
-
-
-.login {
-  height: var(--tamanho-login);
-  background-image: url('../assets/imgs/bgjelly--para-home.png');
-  background-size: cover;
-}
-
-.login .container {
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-}
-
-.card {
-  width: 50%;
-  background-color: #000;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-  justify-content: space-evenly;
-  color: palevioletred;
-  padding: 20px 0;
-}
-
-.card h2 {
-  margin: 0;
-  font-size: 30px;
-}
-
-.formulario {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-}
-
-.formulario span {
-  font-size: 15px;
-  font-weight: 800;
-}
-
-.formulario input,
-.formulario select {
-  border: 2px solid #32b9cd;
-  border-radius: 10px;
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-select {
-  background-color: white;
-  color: gray;
-  height: 36px;
-}
-
-.botao, .btn {
-  cursor: pointer;
-  border: 0;
-  border-radius: 5px;
-  font-weight: 600;
-  font-size: 18px;
-  color: #fff;
-  background-color: #ED145B;
-  width: 120px;
-  height: 30px;
-  align-self: center;
-  margin-top: 10px;
-}
-
-@keyframes bell {
-  0%, 50%, 100% { transform: rotate(25deg); }
-  25%, 75% { transform: rotate(-25deg); }
-}
 
 .footer {
   background-color: #111010ab;

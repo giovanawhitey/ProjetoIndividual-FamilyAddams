@@ -15,56 +15,51 @@
 </head>
 
 <body>
-   <div class="header">
-        <div class="container">
-            <h1 class="titulo"></h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicio</a>
-                </li>
-                <li>
-                    <a href="index.html">Minha História</a>
-                </li>
-                <li>
-                    <a href="index.html">Origem</a>
-                </li>
-                <li><a href="sociedadepersonagens.html">Sociedade</a></li>
-               <li><a href="#personagens">Personagens</a></li>
-              <li><a href="cadastro.html" class="btn-cadastro">Cadastro</a></li>
+  <div class="header">
+    <div class="container">
+      <h1 class="titulo"></h1>
+      <ul class="navbar">
+        <li>
+          <a href="index.html">Inicio</a>
+        </li>
+        <li>
+          <a href="index.html">Minha História</a>
+        </li>
+        <li>
+          <a href="index.html">Origem</a>
+        </li>
+        <li><a href="sociedadepersonagens.html">Sociedade</a></li>
+        <li><a href="#personagens">Personagens</a></li>
+        <li><a href="cadastro.html" class="btn-cadastro">Cadastro</a></li>
         <li><a href="login.html" class="btn-login">Login</a></li>
-               
-            </ul>
-        </div>
+
+      </ul>
     </div>
+  </div>
   <div id="sociedade" class="social">
     <div class="container">
       <div class="frase">Sociedade</div>
 
       <div class="boxes">
-
-      
         <div class="box Ods">
           <div class="imagem-ods1">
             <img src="./assets/imgs/ods10.png" alt="ods">
           </div>
-<br>
+          <br>
           <p class="titulo-ods" style="color: violet;">
             ODS 10 - Redução das Desigualdades
           </p>
-
           <p><br><br>
             Acaba sendo observada quando os Addams são julgados apenas por serem
             diferentes, mas mesmo assim, eles continuam firmes na própria identidade,
             mostrando como é importante respeitar e valorizar a diversidade.
           </p>
         </div>
-
-        
         <div class="box Ods2">
           <div class="imagem-ods2">
             <img src="./assets/imgs/ODS12.png" alt="ods">
           </div>
-<br>
+          <br>
           <p class="titulo-ods" style="color: darkorange;">
             ODS 12 - Consumo e Produção Responsáveis
           </p>
@@ -78,35 +73,35 @@
           </p>
         </div>
 
-      </div> 
+      </div>
     </div>
   </div>
-   <div id="personagens" class="social">
-  <div class="container">
-    <div class="frase">Personagens</div>
+  <div id="personagens" class="social">
+    <div class="container">
+      <div class="frase">Personagens</div>
 
-  <div class="card-personagem">
-  <img id="foto" src="" alt="Personagem">
-  <div class="info-personagem">
-    <div id="nomeDiv"></div>
-    <div id="descDiv"></div>
-  </div>
-</div>
+      <div class="card-personagem">
+        <img id="foto" src="" alt="Personagem">
+        <div class="info-personagem">
+          <div id="nomeDiv"></div>
+          <div id="descDiv"></div>
+        </div>
+      </div>
 
 
-    <div class="botoes">
-      <button onclick="voltar()">◀ Voltar</button>
-      <button onclick="proximo()">Próximo ▶</button>
+      <div class="botoes">
+        <button onclick="voltar()"><b>◀ Voltar</b></button>
+        <button onclick="proximo()"><b>Próximo ▶</b></button>
+      </div>
     </div>
   </div>
-</div>
-<div class="chamada-final">
-  Quer descobrir <b>qual membro da Família Addams você seria?</b>  
-  <br><br>
-  <a href="cadastro.html" style="background:red; padding:12px 25px; border-radius:8px; color:black; font-weight:bold; text-decoration:none; font-size:20px;">
-    Cadastre-se e faça o quiz!
-  </a>
-</div>
+  <div class="chamada-final">
+    Quer descobrir <b>qual membro da Família Addams você seria?</b>
+    <br><br>
+    <a href="cadastro.html"><b>Cadastre-se e faça o quiz!</b>
+      
+    </a>
+  </div>
 
 
   <div class="footer">
@@ -117,79 +112,79 @@
       <p style="color: violet;">giovana.branquinho@sptech.school &hearts;</p>
     </div>
   </div>
-  </body>
+</body>
+
 </html>
 <script>
-var personagens = [
-  {
-    nome: "Mortícia Addams",
-    img: "./assets/imgs/morticia.jpg",
-    descricao: "Matriarca elegante e sombria, carinhosa e protetora, mantém a família unida."
-  },
-  {
-    nome: "Gomez Addams",
-    img: "./assets/imgs/gomez.webp",
-    descricao: "Patriarca excêntrico e apaixonado, cheio de energia, romântico e divertido."
-  },
-  {
-    nome: "Wandinha",
-    img: "./assets/imgs/wandinha.jpg",
-    descricao: "Filha séria e inteligente, com humor mórbido e personalidade independente."
-  },
-  {
-    nome: "Feioso",
-    img: "./assets/imgs/feioso.jpg",
-    descricao: "Filho curioso e energético, adora aventuras e experimentos perigosos."
-  },
-  {
-    nome: "Tio Chico",
-    img: "./assets/imgs/tiochico.jpg",
-    descricao: "Tio excêntrico e amoroso, divertido e imprevisível, sempre ajuda a família."
-  },
-  {
-    nome: "Mãozinha",
-    img: "./assets/imgs/maozinha.webp",
-    descricao: "Mão viva, esperta e leal, com personalidade própria e muito senso de humor."
-  },
-  {
-    nome: "Pubert Addams",
-    img: "./assets/imgs/pubert.jpg",
-    descricao: "Bebê recém-nascido da família, fofinho mas já com traços peculiares, cercado de cuidado e amor da família."
-  },
-  {
-    nome: "Tropeço",
-    img: "./assets/imgs/tropeco.jpg",
-    descricao: "Empregado dedicado da família Addams, discreto e eficiente, sempre cuidando das tarefas domésticas e apoiando todos os membros com lealdade."
-  },
-  {
-    nome: "Vovó Addams",
-    img: "./assets/imgs/vovo.jpg",
-    descricao: "Idosa excêntrica e sábia, cheia de truques e remédios misteriosos, mantém a família entretida com suas histórias."
-  },
-  
-];
-var indice = 0;
+  var personagens = [
+    {
+      nome: "Mortícia Addams",
+      img: "./assets/imgs/morticia.jpg",
+      descricao: "Matriarca elegante e sombria, carinhosa e protetora, mantém a família unida."
+    },
+    {
+      nome: "Gomez Addams",
+      img: "./assets/imgs/gomez.webp",
+      descricao: "Patriarca excêntrico e apaixonado, cheio de energia, romântico e divertido."
+    },
+    {
+      nome: "Wandinha",
+      img: "./assets/imgs/wandinha.jpg",
+      descricao: "Filha séria e inteligente, com humor mórbido e personalidade independente."
+    },
+    {
+      nome: "Feioso",
+      img: "./assets/imgs/feioso.jpg",
+      descricao: "Filho curioso e energético, adora aventuras e experimentos perigosos."
+    },
+    {
+      nome: "Tio Chico",
+      img: "./assets/imgs/tiochico.jpg",
+      descricao: "Tio excêntrico e amoroso, divertido e imprevisível, sempre ajuda a família."
+    },
+    {
+      nome: "Mãozinha",
+      img: "./assets/imgs/maozinha.webp",
+      descricao: "Mão viva, esperta e leal, com personalidade própria e muito senso de humor."
+    },
+    {
+      nome: "Pubert Addams",
+      img: "./assets/imgs/pubert.jpg",
+      descricao: "Bebê recém-nascido da família, fofinho mas já com traços peculiares, cercado de cuidado e amor da família."
+    },
+    {
+      nome: "Tropeço",
+      img: "./assets/imgs/tropeco.jpg",
+      descricao: "Empregado dedicado da família Addams, discreto e eficiente, sempre cuidando das tarefas domésticas e apoiando todos os membros com lealdade."
+    },
+    {
+      nome: "Vovó Addams",
+      img: "./assets/imgs/vovo.jpg",
+      descricao: "Idosa excêntrica e sábia, cheia de truques e remédios misteriosos, mantém a família entretida com suas histórias."
+    },
 
-function mostrar() {
-  var p = personagens[indice];
+  ];
+  var indice = 0;
 
-  foto.src = p.img;            
-  nomeDiv.innerText = p.nome;  
-  descDiv.innerText = p.descricao; 
-}
+  function mostrar() {
+    var p = personagens[indice];
 
-function proximo() {
-  indice++;
-  if (indice >= personagens.length) indice = 0;
+    foto.src = p.img;
+    nomeDiv.innerText = p.nome;
+    descDiv.innerText = p.descricao;
+  }
+
+  function proximo() {
+    indice++;
+    if (indice >= personagens.length) indice = 0;
+    mostrar();
+  }
+
+  function voltar() {
+    indice--;
+    if (indice < 0) indice = personagens.length - 1;
+    mostrar();
+  }
+
   mostrar();
-}
-
-function voltar() {
-  indice--;
-  if (indice < 0) indice = personagens.length - 1;
-  mostrar();
-}
-
-mostrar();
 </script>
-

@@ -1,16 +1,175 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Addams Family | Página Inicial</title>
+  <title>Addams Family | Quiz</title>
 
-  <script src="./js/sessao.js"></script>
-  <link rel="stylesheet" href="./css/estilo.css">
+  <link rel="stylesheet" href="./css/quizAD.css">
   <link rel="icon" href="./assets/icon/logosiyte.png">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <script src="./js/sessao.js"></script>
 </head>
-<body>
+
+<body onload="onloadEsconder()">
+
+  <div class="header">
+    <div class="container">
+      <h1 class="titulo">Quiz Família Addams</h1>
+      <ul class="navbar">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="quiz.html">Quiz</a></li>
+        <li><a href="dashboard.html">Dashboard</a></li>
+      </ul>
+    </div>
+  </div>
+  <div id="pontuacaoEJogo">
+
+    <button id="btnIniciar" onclick="iniciar()">Iniciar Quiz </button>
+
+    
+    <div id="jogo" class="width-fit-content flex-colunar border-secondary">
+
+      <div id="infoQuestao" class="padding-8">
+        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>.</span>
+      </div>
+
+      <div id="perguntaDaQuestaoAtual" class="padding-8">
+        <span id="spanQuestaoExibida" class="text-bold"></span>
+      </div>
+
+      <div id="infoAlternativas" class="padding-8">
+        <span><em>Escolha uma opção:</em></span>
+      </div>
+
+      <div id="opcoes" class="flex-colunar padding-8">
+
+        <label class="option">
+          <input type="radio" id="primeiraOpcao" name="option" value="0">
+          <span id="labelOpcaoUm"></span>
+        </label>
+
+        <label class="option">
+          <input type="radio" id="segundaOpcao" name="option" value="1">
+          <span id="labelOpcaoDois"></span>
+        </label>
+
+        <label class="option">
+          <input type="radio" id="terceiraOpcao" name="option" value="2">
+          <span id="labelOpcaoTres"></span>
+        </label>
+
+        <label class="option">
+          <input type="radio" id="quartaOpcao" name="option" value="3">
+          <span id="labelOpcaoQuatro"></span>
+        </label>
+
+      </div>
+      <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
+      <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+        <span id="pontuacaoFinal" class="width-fit-content">
+          Personagem final: <span id="spanPontuacaoFinal">***</span>
+        </span>
+        <span id="msgFinal" class="width-fit-content">***</span>
+
+        <div id="resultadoPersonagem" style="display: none; text-align: center; margin-top: 20px;">
+          <img id="imgPersonagemFinal" src="" alt="Personagem" style="width: 200px; border-radius: 10px;">
+          <p id="descricaoPersonagemFinal" style="margin-top: 10px;"></p>
+        </div>
+       
+
+      </div>
+    </div>
+
+
+      <div id="botoes" class="flex-colunar padding-8">
+        <button onclick="avancar()" id="btnProx" disabled>Próxima questão</button>
+        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+      </div>
+
+    </div>
+
+  </div>
+</body>
+</html>
+  <script>
+    const personagens = [
+    {
+      nome: "Mortícia Addams",
+      img: "./assets/imgs/morticia.jpg",
+      descricao: "Matriarca elegante e sombria, carinhosa e protetora, mantém a família unida."
+    },
+    {
+      nome: "Gomez Addams",
+      img: "./assets/imgs/gomez.webp",
+      descricao: "Patriarca excêntrico e apaixonado, cheio de energia, romântico e divertido."
+    },
+    {
+      nome: "Wandinha",
+      img: "./assets/imgs/wandinha.jpg",
+      descricao: "Filha séria e inteligente, com humor mórbido e personalidade independente."
+    },
+    {
+      nome: "Feioso",
+      img: "./assets/imgs/feioso.jpg",
+      descricao: "Filho curioso e energético, adora aventuras e experimentos perigosos."
+    },
+    {
+      nome: "Tio Chico",
+      img: "./assets/imgs/tiochico.jpg",
+      descricao: "Tio excêntrico e amoroso, divertido e imprevisível, sempre ajuda a família."
+    },
+    {
+      nome: "Mãozinha",
+      img: "./assets/imgs/maozinha.webp",
+      descricao: "Mão viva, esperta e leal, com personalidade própria e muito senso de humor."
+    },
+    {
+      nome: "Pubert Addams",
+      img: "./assets/imgs/pubert.jpg",
+      descricao: "Bebê recém-nascido da família, fofinho mas já com traços peculiares, cercado de cuidado e amor da família."
+    },
+    {
+      nome: "Tropeço",
+      img: "./assets/imgs/tropeco.jpg",
+      descricao: "Empregado dedicado da família Addams, discreto e eficiente, sempre cuidando das tarefas domésticas e apoiando todos os membros com lealdade."
+    },
+    {
+      nome: "Vovó Addams",
+      img: "./assets/imgs/vovo.jpg",
+      descricao: "Idosa excêntrica e sábia, cheia de truques e remédios misteriosos, mantém a família entretida com suas histórias."
+    },
+
+  ];
+
+    const listaDeQuestoes = [
+      {
+        pergunta: "Qual dessas características mais combina com você?",
+        alternativas: [
+          { texto: "Elegante e sombria", personagens: [0] },
+          { texto: "Romântico e excêntrico", personagens: [1] },
+          { texto: "Séria e inteligente", personagens: [2] },
+          { texto: "Curioso e energético", personagens: [3] }
+        ]
+      },
+      {
+        pergunta: "Como você age em situações inesperadas?",
+        alternativas: [
+          { texto: "Ajuda e cuida de todos", personagens: [1, 4] },
+          { texto: "Fica observando e planejando", personagens: [2, 0] },
+          { texto: "Aventureiro e destemido", personagens: [3, 5] },
+          { texto: "Fica calmo e discreto", personagens: [7] }
+        ]
+      },
+      {
+        pergunta: "Qual descrição se parece mais com você?",
+        alternativas: [
+          { texto: "Fofinho e peculiar", personagens: [6] },
+          { texto: "Idoso excêntrico e sábio", personagens: [8] },
+          { texto: "Excêntrico e amoroso", personagens: [4] },
+          { texto: "Esperto e leal", personagens: [5] }
+        ]
+      }
+    ];
+

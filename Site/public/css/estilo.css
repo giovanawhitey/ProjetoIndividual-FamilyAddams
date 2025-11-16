@@ -154,12 +154,12 @@ background-position: center;
   text-align: left;
   margin: auto;
   font-family: "Keania One", cursive;
-  font-size: 20px;
+  font-size: 35px;
   color: #1a1a1a;
 }
 
 .frase {
-  font-size: 32px;
+  font-size: 38px;
   font-weight: bold;
   margin-bottom: 30px;
   text-align: center;
@@ -251,6 +251,7 @@ background-position: center;
   width: 60%;
   font-size: 18px;
   line-height: 1.5;
+  font-size: 20px;
 }
 
 

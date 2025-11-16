@@ -4,9 +4,9 @@
   --tamanho-header: 80px;
   --tamanho-footer: 65px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
 }
+
 
 * {
   margin: 0;
@@ -124,7 +124,10 @@ body {
 }
 
 .social { 
-  background-color: #000000;
+  background-image: url("../assets/imgs/possivelfundo2.webp");
+  background-repeat: no-repeat;
+background-size: cover;
+background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -145,7 +148,7 @@ body {
   background-color: #ffffff88;
   padding: 32px;
   border-radius: 15px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 8px rgb(0, 0, 0);
   width: 100%;
   max-width: 1100px;
   text-align: left;

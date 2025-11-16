@@ -4,7 +4,6 @@
   --tamanho-header: 80px;
   --tamanho-footer: 65px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
 }
 
@@ -217,7 +216,7 @@ body {
   padding: 12px;
   margin-top: 20px;
 
-  background-color: black;       
+  background-color: rgba(8, 8, 8, 0.521);       
   color: white;                 
   font-size: 16px;               
   font-weight: bold;            
@@ -247,3 +246,4 @@ body {
 .footer .version {
   font-size: 12px;
 }
+

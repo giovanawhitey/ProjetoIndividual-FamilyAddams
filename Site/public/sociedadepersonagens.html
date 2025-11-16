@@ -9,56 +9,187 @@
   <title>Addams Family | Página Inicial</title>
 
   <script src="./js/sessao.js"></script>
-  <link rel="stylesheet" href="./css/estilo.css">
+  <link rel="stylesheet" href="./css/sociedadepersonagens.css">
   <link rel="icon" href="./assets/icon/logosiyte.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
 
 <body>
-
-  <!-- HEADER -->
-  <div class="header">
-    <div class="container">
-      <h1 class="titulo"></h1>
-      <ul class="navbar">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="index.html">Minha História</a></li>
-        <li><a href="index.html">Origem</a></li>
-        <li class="agora"><a href="sociedadepersonagens.html">Sociedade</a></li>
-        <li><a href="sociedadepersonagens.html">Personagens</a></li>
-        <li><a href="cadastro.html">Cadastro</a></li>
-        <li><a href="login.html">Login</a></li>
-      </ul>
+   <div class="header">
+        <div class="container">
+            <h1 class="titulo"></h1>
+            <ul class="navbar">
+                <li>
+                    <a href="index.html">Inicio</a>
+                </li>
+                <li>
+                    <a href="index.html">Minha História</a>
+                </li>
+                <li>
+                    <a href="index.html">Origem</a>
+                </li>
+                <li><a href="sociedadepersonagens.html">Sociedade</a></li>
+               <li><a href="#personagens">Personagens</a></li>
+              <li><a href="cadastro.html" class="btn-cadastro">Cadastro</a></li>
+        <li><a href="login.html" class="btn-login">Login</a></li>
+               
+            </ul>
+        </div>
     </div>
-  </div>
-
-  <!-- SOCIEDADE -->
   <div id="sociedade" class="social">
     <div class="container">
       <div class="frase">Sociedade</div>
 
       <div class="boxes">
 
-        <div class="box frase">
-        
+      
+        <div class="box Ods">
+          <div class="imagem-ods1">
+            <img src="./assets/imgs/ods10.png" alt="ods">
+          </div>
+<br>
+          <p class="titulo-ods" style="color: violet;">
+            ODS 10 - Redução das Desigualdades
+          </p>
 
-        <div class="imagem-ods1">
-          <img src="" alt="ods">
+          <p><br><br>
+            Acaba sendo observada quando os Addams são julgados apenas por serem
+            diferentes, mas mesmo assim, eles continuam firmes na própria identidade,
+            mostrando como é importante respeitar e valorizar a diversidade.
+          </p>
         </div>
 
-      </div>
+        
+        <div class="box Ods2">
+          <div class="imagem-ods2">
+            <img src="./assets/imgs/ODS12.png" alt="ods">
+          </div>
+<br>
+          <p class="titulo-ods" style="color: darkorange;">
+            ODS 12 - Consumo e Produção Responsáveis
+          </p>
+
+          <p><br>
+            Surge na crítica que o filme faz ao consumismo exagerado, demonstrando
+            que enquanto o “mundo normal” vive em busca de status e aparência, os
+            Addams focam no essencial: amor, união e respeito dentro da família,
+            provando que dá para viver de um jeito simples, autêntico e sem precisar
+            agradar ninguém.
+          </p>
+        </div>
+
+      </div> 
     </div>
   </div>
+   <div id="personagens" class="social">
+  <div class="container">
+    <div class="frase">Personagens</div>
 
-  <!-- FOOTER -->
+  <div class="card-personagem">
+  <img id="foto" src="" alt="Personagem">
+  <div class="info-personagem">
+    <div id="nomeDiv"></div>
+    <div id="descDiv"></div>
+  </div>
+</div>
+
+
+    <div class="botoes">
+      <button onclick="voltar()">◀ Voltar</button>
+      <button onclick="proximo()">Próximo ▶</button>
+    </div>
+  </div>
+</div>
+<div class="chamada-final">
+  Quer descobrir <b>qual membro da Família Addams você seria?</b>  
+  <br><br>
+  <a href="cadastro.html" style="background:red; padding:12px 25px; border-radius:8px; color:black; font-weight:bold; text-decoration:none; font-size:20px;">
+    Cadastre-se e faça o quiz!
+  </a>
+</div>
+
+
   <div class="footer">
     <div class="container">
       <h4>
         Feito com amor por Giovana Branquinho Addams &hearts; SPTechSchool &copy; 2025
-        <p style="color: violet;">giovana.branquinho@sptech.school &hearts;</p>
       </h4>
+      <p style="color: violet;">giovana.branquinho@sptech.school &hearts;</p>
     </div>
   </div>
-
-</body>
+  </body>
 </html>
+<script>
+var personagens = [
+  {
+    nome: "Mortícia Addams",
+    img: "./assets/imgs/morticia.jpg",
+    descricao: "Matriarca elegante e sombria, carinhosa e protetora, mantém a família unida."
+  },
+  {
+    nome: "Gomez Addams",
+    img: "./assets/imgs/gomez.webp",
+    descricao: "Patriarca excêntrico e apaixonado, cheio de energia, romântico e divertido."
+  },
+  {
+    nome: "Wandinha",
+    img: "./assets/imgs/wandinha.jpg",
+    descricao: "Filha séria e inteligente, com humor mórbido e personalidade independente."
+  },
+  {
+    nome: "Feioso",
+    img: "./assets/imgs/feioso.jpg",
+    descricao: "Filho curioso e energético, adora aventuras e experimentos perigosos."
+  },
+  {
+    nome: "Tio Chico",
+    img: "./assets/imgs/tiochico.jpg",
+    descricao: "Tio excêntrico e amoroso, divertido e imprevisível, sempre ajuda a família."
+  },
+  {
+    nome: "Mãozinha",
+    img: "./assets/imgs/maozinha.webp",
+    descricao: "Mão viva, esperta e leal, com personalidade própria e muito senso de humor."
+  },
+  {
+    nome: "Pubert Addams",
+    img: "./assets/imgs/pubert.jpg",
+    descricao: "Bebê recém-nascido da família, fofinho mas já com traços peculiares, cercado de cuidado e amor da família."
+  },
+  {
+    nome: "Tropeço",
+    img: "./assets/imgs/tropeco.jpg",
+    descricao: "Empregado dedicado da família Addams, discreto e eficiente, sempre cuidando das tarefas domésticas e apoiando todos os membros com lealdade."
+  },
+  {
+    nome: "Vovó Addams",
+    img: "./assets/imgs/vovo.jpg",
+    descricao: "Idosa excêntrica e sábia, cheia de truques e remédios misteriosos, mantém a família entretida com suas histórias."
+  },
+  
+];
+var indice = 0;
+
+function mostrar() {
+  var p = personagens[indice];
+
+  foto.src = p.img;            
+  nomeDiv.innerText = p.nome;  
+  descDiv.innerText = p.descricao; 
+}
+
+function proximo() {
+  indice++;
+  if (indice >= personagens.length) indice = 0;
+  mostrar();
+}
+
+function voltar() {
+  indice--;
+  if (indice < 0) indice = personagens.length - 1;
+  mostrar();
+}
+
+mostrar();
+</script>
+

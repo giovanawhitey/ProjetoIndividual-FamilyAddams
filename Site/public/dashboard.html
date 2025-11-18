@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Addams Family | Quiz</title>
+    <link rel="stylesheet" href="./css/dashboards.css">
+    <link rel="icon" href="./assets/icon/logosiyte.png">
+    <script src="./js/sessao.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+<div class="janela">
+
+    <div class="header-left">
+        <div class="logo">
+            <img src="./assets/icon/addams-family-seeklogo.png" class="logo" width="210px" height="90px">
+        </div>
+
+        <div class="hello">
+            <h1>Olá, <span id="b_usuario">Addams</span>!</h1>
+        </div>
+
+        <div class="btn-nav btn-selected">
+             <a href="./dashboard.html">
+            <h3>Dashboard</h3>
+            </a>
+        </div>
+
+        <div class="btn-nav">
+            <a href="./quiz.html">
+            <h3>Quiz</h3>
+             </a>
+        </div>
+
+        <div class="btn-logout" onclick="limparSessao()">
+            <h3>Sair</h3>
+        </div>
+    </div>
+
+    <div class="dash-content">
+
+        <h2 class="titulo">Dashboard Quiz – Família Addams</h2>
+
+        <div class="cards">
+            <div class="card">
+                <h4>NÚMERO DE JOGADOR</h4>
+                <span id="cardJogadores"><br><b>3</b></span>
+            </div>
+
+            <div class="card">
+                <h4>PERSONAGEM MAIS Exibido</h4>
+                <span id="cardMaisEscolhido"><br><b>Wandinha</b></span>
+            </div>
+
+            <div class="card">
+                <h4>CARACTERÍSTICA MAIS ESCOLHIDA</h4>
+                <span id="cardCarac"><br><b>Sombrio</b></span>
+            </div>
+        </div>
+
+        <div class="graficos-grid">
+
+            <div class="box-grafico">
+                <h3>Popularidade das Características</h3>
+                <canvas id="graficoCaracteristicas"></canvas>
+            </div>
+
+            <div class="box-grafico">
+                <h3>Top 5 Personagens</h3>
+            </div>
+
+            <div class="box-grafico">
+                <h3>Resultados</h3>
+                <canvas id="graficoPersonagens"></canvas>
+            </div>
+
+            <div class="box-grafico">
+                <h3>Distribuição Geral</h3>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+</body>
+</html>

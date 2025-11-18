@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&display=swap');
+
+
+:root {
+  --tamanho-header: 80px;
+  --tamanho-footer: 65px;
+  --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Cinzel Decorative', serif;
+}
+
+
+body {
+  background-color: #000000;
+  color: #333;
+}
+
+
+.janela {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+.header-left {
+  width: 250px;
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+.logo {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+
+.hello {
+  color: #000000;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #444;
+  padding-bottom: 15px;
+}
+
+.hello h1 {
+  font-size: 22px;
+}
+
+.hello span {
+  color: #e62222;
+}
+
+.btn-nav,  .btn-logout {
+  color: #ffffff;
+  padding: 12px 15px;
+  margin: 5px 0;
+  border-radius: 6px;
+  cursor: pointer;
+  text-align: center;
+  transition: 0.3s;
+}
+
+
+.btn-nav {
+  background-color: #000000;
+}
+
+.btn-nav:hover {
+  background-color: #600000;
+}
+
+
+.btn-selected {
+  background-color: #000000;
+  color: white;
+}
+
+
+.btn-logout {
+  background-color: #000000;
+  color: rgb(255, 255, 255);
+  margin-top: auto;
+}
+
+.btn-logout:hover {
+  background-color: #600000;
+}

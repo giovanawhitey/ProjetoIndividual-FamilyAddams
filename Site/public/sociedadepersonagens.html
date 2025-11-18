@@ -83,8 +83,8 @@
       <div class="card-personagem">
         <img id="foto" src="" alt="Personagem">
         <div class="info-personagem">
-          <div id="nomeDiv"></div>
-          <div id="descDiv"></div>
+          <div id="nome" class="nome"></div>
+          <div id="desc"class="desc"></div>
         </div>
       </div>
 
@@ -170,19 +170,24 @@
     var p = personagens[indice];
 
     foto.src = p.img;
-    nomeDiv.innerText = p.nome;
-    descDiv.innerText = p.descricao;
+    nome.innerText = p.nome;
+    desc.innerText = p.descricao;
   }
 
   function proximo() {
     indice++;
-    if (indice >= personagens.length) indice = 0;
+    if (indice >= personagens.length){ 
+      indice = 0;
+    }
     mostrar();
+  
   }
 
   function voltar() {
     indice--;
-    if (indice < 0) indice = personagens.length - 1;
+    if (indice < 0){
+    indice = personagens.length - 1;
+    }
     mostrar();
   }
 

@@ -59,7 +59,7 @@ body {
 }
 
 .btn-nav,  .btn-logout {
-  color: #ffffff;
+  color: #f8f8f8;
   padding: 12px 15px;
   margin: 5px 0;
   border-radius: 6px;
@@ -71,17 +71,15 @@ body {
 
 .btn-nav {
   background-color: #000000;
+  color: whitesmoke;
 }
 
 .btn-nav:hover {
-  background-color: #600000;
+  background-color: #727272;
 }
 
 
-.btn-selected {
-  background-color: #000000;
-  color: white;
-}
+
 
 
 .btn-logout {
@@ -189,7 +187,7 @@ body {
 
 .botoes button:disabled {
   opacity: 0.5;
-  cursor: not-allowed;
+  
 }
 
 .botoes button:disabled:hover {

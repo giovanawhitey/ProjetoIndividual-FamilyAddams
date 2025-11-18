@@ -31,7 +31,7 @@ body {
 
 .header-left {
   width: 250px;
-  background-color: #ffffff;
+  background: #ffffff;
   color: rgb(0, 0, 0);
   padding: 20px;
   display: flex;
@@ -58,7 +58,7 @@ body {
   color: #e62222;
 }
 
-.btn-nav,  .btn-logout {
+.btn-nav, .btn-nav-white, .btn-logout {
   color: #ffffff;
   padding: 12px 15px;
   margin: 5px 0;
@@ -83,6 +83,20 @@ body {
   color: white;
 }
 
+.btn-nav-white {
+  background: rgb(0, 0, 0);
+  color: #ffffff;
+}
+
+.btn-nav-white:hover {
+  background: #600000;
+}
+
+.btn-nav-white a {
+  text-decoration: none;
+  color: inherit;
+}
+
 
 .btn-logout {
   background-color: #000000;
@@ -92,4 +106,106 @@ body {
 
 .btn-logout:hover {
   background-color: #600000;
+}
+
+
+.pontuacaoEJogo {
+  margin-top: 40px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.btnIniciar {
+  margin-top: 80px;
+  background: #222;
+  border: 1px solid #555;
+  padding: 12px 26px;
+  font-size: 18px;
+  color: #e5dcdc;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+.btnIniciar:hover {
+  background: #333;
+}
+
+.pontuacao {
+ display: flex;
+    flex-direction: column;      
+    justify-content: center;     
+    align-items: center;         
+    text-align: center;          
+    margin-bottom: 10px;
+    width: 350px;
+    background: #111;
+    border: 1px solid #444;
+    padding: 15px;
+    border-radius: 8px;
+    color: #e5dcdc;
+}
+
+.jogo {
+  width: 650px;
+  background: #7a7979;
+  border: 1px solid #444;
+  padding: 25px;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: 40px;
+}
+
+.infoQuestao,
+.infoAlternativas {
+  font-size: 16px;
+}
+
+
+
+.option {
+  display: flex;
+  align-items: center;
+  background: #ddd6d6;
+  color: #000;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.option input {
+  margin-right: 15px;
+}
+.opcoes .option {
+  display: flex;
+  align-items: center;
+  background: #ddd6d6;
+  color: #000;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+
+.botoes button {
+  margin-top: 10px;
+  background: #222;
+  border: 1px solid #555;
+  padding: 10px 20px;
+  color: #e5dcdc;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.botoes button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.botoes button:disabled:hover {
+  background: #333;
 }

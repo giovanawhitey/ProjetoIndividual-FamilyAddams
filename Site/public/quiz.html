@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,101 +18,103 @@
   <div class="janela">
 
     <div class="header-left">
-        <div class="logo">
-            <img src="../assets/icon/addams-family-seeklogo.png" class="logo" width="210px" height="90px">
-        </div>
-
-        <div class="hello">
-            <h1>Olá, <span id="b_usuario">Addams</span>!</h1>
-        </div>
-
-        <div class="btn-nav btn-selected">
-           <a href="./dashboard.html">
-            <h3>Dashboard</h3>
-            </a>
-        </div>
-
-        <div class="btn-nav">
-            <a href="./quiz.html">
-            <h3>Quiz</h3>
-             </a>
-        </div>
-
-        <div class="btn-logout" onclick="limparSessao()">
-            <h3>Sair</h3>
-        </div>
-    </div>
-  <div id="pontuacaoEJogo">
-
-    <button id="btnIniciar" onclick="iniciar()">Iniciar Quiz </button>
-
-    
-    <div id="jogo" class="width-fit-content flex-colunar border-secondary">
-
-      <div id="infoQuestao" class="padding-8">
-        <span>Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>.</span>
+      <div class="logo">
+        <img src="./assets/icon/addams-family-seeklogo.png" class="logo" width="210px" height="90px">
       </div>
 
-      <div id="perguntaDaQuestaoAtual" class="padding-8">
-        <span id="spanQuestaoExibida" class="text-bold"></span>
+      <div class="hello">
+        <h1>Olá, <span id="b_usuario">Addams</span>!</h1>
       </div>
 
-      <div id="infoAlternativas" class="padding-8">
-        <span><em>Escolha uma opção:</em></span>
+      <div class="btn-nav btn-selected">
+        <a href="./dashboard.html">
+          <h3>Dashboard</h3>
+        </a>
       </div>
 
-      <div id="opcoes" class="flex-colunar padding-8">
-
-        <label class="option">
-          <input type="radio" id="primeiraOpcao" name="option" value="0">
-          <span id="labelOpcaoUm"></span>
-        </label>
-
-        <label class="option">
-          <input type="radio" id="segundaOpcao" name="option" value="1">
-          <span id="labelOpcaoDois"></span>
-        </label>
-
-        <label class="option">
-          <input type="radio" id="terceiraOpcao" name="option" value="2">
-          <span id="labelOpcaoTres"></span>
-        </label>
-
-        <label class="option">
-          <input type="radio" id="quartaOpcao" name="option" value="3">
-          <span id="labelOpcaoQuatro"></span>
-        </label>
-
+      <div class="btn-nav">
+        <a href="./quiz.html">
+          <h3>Quiz</h3>
+        </a>
       </div>
-      <div id="pontuacao" class="flex-colunar width-fit-content border-primary">
-      <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-        <span id="pontuacaoFinal" class="width-fit-content">
-          Personagem final: <span id="spanPontuacaoFinal">***</span>
-        </span>
-        <span id="msgFinal" class="width-fit-content">***</span>
 
-        <div id="resultadoPersonagem" style="display: none; text-align: center; margin-top: 20px;">
-          <img id="imgPersonagemFinal" src="" alt="Personagem" style="width: 200px; border-radius: 10px;">
-          <p id="descricaoPersonagemFinal" style="margin-top: 10px;"></p>
-        </div>
-       
-
+      <div class="btn-logout" onclick="limparSessao()">
+        <a href="./ind.html">
+        <h3>Sair</h3>
+        </a>
       </div>
     </div>
+    <div id="pontuacaoEJogo" class="pontuacaoEJogo">
+
+      <button id="btnIniciar" class="btnIniciar" onclick="iniciar()">Iniciar Quiz </button>
 
 
-      <div id="botoes" class="flex-colunar padding-8">
-        <button onclick="avancar()" id="btnProx" disabled>Próxima questão</button>
-        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+      <div id="jogo" class="jogo">
+
+        <div id="infoQuestao" class="padding-8">
+          <span><b><p style="color:rgb(0, 0, 0);">Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>.</p></b></span>
+        </div>
+
+        <div id="perguntaDaQuestaoAtual" class="padding-8">
+          <span id="spanQuestaoExibida" class="text-bold"></span>
+        </div>
+
+        <div id="infoAlternativas" class="padding-8">
+          <span><em>Escolha somente uma opção:</em></span>
+        </div>
+
+        <div id="opcoes" class="flex-colunar padding-8">
+
+          <label class="option">
+            <input type="radio" id="primeiraOpcao" name="option" value="0">
+            <span id="labelOpcaoUm"></span>
+          </label>
+
+          <label class="option">
+            <input type="radio" id="segundaOpcao" name="option" value="1">
+            <span id="labelOpcaoDois"></span>
+          </label>
+
+          <label class="option">
+            <input type="radio" id="terceiraOpcao" name="option" value="2">
+            <span id="labelOpcaoTres"></span>
+          </label>
+
+          <label class="option">
+            <input type="radio" id="quartaOpcao" name="option" value="3">
+            <span id="labelOpcaoQuatro"></span>
+          </label>
+
+        </div>
+        <div id="pontuacao" class="pontuacao">
+          <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+            <span id="pontuacaoFinal" class="width-fit-content">
+              <p style ="color: aliceblue;">Personagem final: <span id="spanPontuacaoFinal"></p></span>
+            </span>
+            <span id="msgFinal" class="width-fit-content"></span>
+
+            <div id="resultadoPersonagem" style="display: none; text-align: center; margin-top: 20px;">
+              <img id="imgPersonagemFinal" src="" alt="Personagem" style="width: 200px; border-radius: 10px;">
+              <p id="descricaoPersonagemFinal" style="margin-top: 10px;"></p>
+            </div>
+
+
+          </div>
+        </div>
+
+
+        <div id="botoes" class="botoes">
+          <button onclick="avancar()" id="btnProx" disabled>Próxima questão</button>
+          <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+        </div>
+
       </div>
 
     </div>
-
-  </div>
 </body>
 </html>
-  <script>
-    const personagens = [
+<script>
+  var personagens = [
     {
       nome: "Mortícia Addams",
       img: "./assets/imgs/morticia.jpg",
@@ -160,33 +163,126 @@
 
   ];
 
-    const listaDeQuestoes = [
-      {
-        pergunta: "Qual dessas características mais combina com você?",
-        alternativas: [
-          { texto: "Elegante e sombria", personagens: [0] },
-          { texto: "Romântico e excêntrico", personagens: [1] },
-          { texto: "Séria e inteligente", personagens: [2] },
-          { texto: "Curioso e energético", personagens: [3] }
-        ]
-      },
-      {
-        pergunta: "Como você age em situações inesperadas?",
-        alternativas: [
-          { texto: "Ajuda e cuida de todos", personagens: [1, 4] },
-          { texto: "Fica observando e planejando", personagens: [2, 0] },
-          { texto: "Aventureiro e destemido", personagens: [3, 5] },
-          { texto: "Fica calmo e discreto", personagens: [7] }
-        ]
-      },
-      {
-        pergunta: "Qual descrição se parece mais com você?",
-        alternativas: [
-          { texto: "Fofinho e peculiar", personagens: [6] },
-          { texto: "Idoso excêntrico e sábio", personagens: [8] },
-          { texto: "Excêntrico e amoroso", personagens: [4] },
-          { texto: "Esperto e leal", personagens: [5] }
-        ]
-      }
-    ];
+  var listaDeQuestoes = [
+    {
+      pergunta: "Qual dessas características mais combina com você?",
+      alternativas: [
+        { texto: " Me considero elegante e sombria", personagens: [0] },
+        { texto: " Me considero romântico e excêntrico", personagens: [1] },
+        { texto: " Me considero séria e inteligente", personagens: [2] },
+        { texto: " Me considero curioso e energético", personagens: [3] }
+      ]
+    },
+    {
+      pergunta: "Como você reage em situações inesperadas?",
+      alternativas: [
+        { texto: "Gosto de ajudar e cuidar de todos", personagens: [1, 4] },
+        { texto: "Fico observando e planejando", personagens: [2, 0] },
+        { texto: "Sou aventureiro e destemido", personagens: [3, 5] },
+        { texto: "Permaneço calmo e discreto", personagens: [7] }
+      ]
+    },
+    {
+      pergunta: "Qual descrição se parece mais com você?",
+      alternativas: [
+        { texto: "Fofinho e peculiar", personagens: [6] },
+        { texto: "Idoso excêntrico e sábio", personagens: [8] },
+        { texto: "Excêntrico e amoroso", personagens: [4] },
+        { texto: "Esperto e leal", personagens: [5] }
+      ]
+    }
+  ];
 
+  let questaoAtual = 0;
+  let pontuacaoPersonagem = {};
+
+  function onloadEsconder() {
+    document.getElementById("jogo").style.display = "none";
+    document.getElementById("pontuacao").style.display = "none";
+  }
+  function iniciar() {
+    document.getElementById("btnIniciar").style.display = "none";
+    document.getElementById("jogo").style.display = "block";
+
+    pontuacaoPersonagem = {};
+    for (let i = 0; i < personagens.length; i++) {
+      pontuacaoPersonagem[i] = 0;
+    }
+
+    questaoAtual = 0;
+    mostrarQuestao();
+  }
+  function mostrarQuestao() {
+    const questao = listaDeQuestoes[questaoAtual];
+
+    document.getElementById("spanNumeroDaQuestaoAtual").innerText = questaoAtual + 1;
+    document.getElementById("qtdQuestoes").innerText = listaDeQuestoes.length;
+
+    document.getElementById("spanQuestaoExibida").innerText = questao.pergunta;
+
+    document.getElementById("labelOpcaoUm").innerText = questao.alternativas[0].texto;
+    document.getElementById("labelOpcaoDois").innerText = questao.alternativas[1].texto;
+    document.getElementById("labelOpcaoTres").innerText = questao.alternativas[2].texto;
+    document.getElementById("labelOpcaoQuatro").innerText = questao.alternativas[3].texto;
+
+    const radios = document.getElementsByName("option");
+    for (let i = 0; i < radios.length; i++) {
+      radios[i].checked = false;
+    }
+
+    document.getElementById("btnProx").disabled = false;
+  }
+  function avancar() {
+    const radios = document.getElementsByName("option");
+    let indiceSelecionado = -1;
+
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked === true) {
+        indiceSelecionado = parseInt(radios[i].value);
+      }
+    }
+
+    if (indiceSelecionado === -1) {
+      alert("Escolha uma opção!");
+    } else {
+      const alternativa = listaDeQuestoes[questaoAtual].alternativas[indiceSelecionado];
+      alternativa.personagens.forEach(id => pontuacaoPersonagem[id]++);
+
+      questaoAtual++;
+
+      if (questaoAtual < listaDeQuestoes.length) {
+        mostrarQuestao();
+      } else {
+        finalizarJogo();
+      }
+    }
+  }
+
+  function finalizarJogo() {
+    document.getElementById("btnProx").disabled = true;
+    document.getElementById("btnTentarNovamente").disabled = false;
+
+    let maiorPontuacao = -1;
+    let idDoVencedor = 0;
+
+    for (let i = 0; i < personagens.length; i++) {
+      if (pontuacaoPersonagem[i] > maiorPontuacao) {
+        maiorPontuacao = pontuacaoPersonagem[i];
+        idDoVencedor = i;
+      }
+    }
+
+    const vencedor = personagens[idDoVencedor];
+
+    document.getElementById("spanPontuacaoFinal").innerText = vencedor.nome;
+    document.getElementById("imgPersonagemFinal").src = vencedor.img;
+    document.getElementById("descricaoPersonagemFinal").innerText = vencedor.descricao;
+
+    document.getElementById("pontuacao").style.display = "block";
+    document.getElementById("resultadoPersonagem").style.display = "block";
+  }
+
+  function tentarNovamente() {
+    location.reload();
+  }
+</script>

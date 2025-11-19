@@ -1,23 +1,35 @@
+
 var database = require("../database/config");
 
-function listarPontos() {
-    console.log("ACESSEI O QUIZ  MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function listar()");
-  var instrucao = `
-    select avg(qtdPontos) from quiz;
-  `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
-  return database.executar(instrucao);
+function listarResultados() {
+    console.log("Listando resultados do quiz...");
+
+    var instrucao = `
+        SELECT 
+            p.nome AS personagem,
+            COUNT(*) AS quantidade
+        FROM RespostasUsuario r
+        JOIN Personagens p ON r.fkPersonagem = p.idPersonagem
+        GROUP BY p.nome
+        ORDER BY quantidade DESC;
+    `;
+
+    console.log("Executando SQL:\n" + instrucao);
+    return database.executar(instrucao);
 }
 
-function cadastrarPontos(pontos, idUsuario) {
-  var instrucao = `
-    INSERT INTO quiz (qtdPontos, fkUsuario) VALUES (${pontos}, ${idUsuario});
-  `;
-  console.log("Executando a instrução SQL: \n" + instrucao);
-  return database.executar(instrucao);
+function salvarResultado(idUsuario, idPersonagem) {
+
+    var instrucao = `
+        INSERT INTO RespostasUsuario (Perguntas, Alternativas, fkPersonagem, fkUsuario)
+        VALUES ('Final', 'Resultado do Quiz', ${idPersonagem}, ${idUsuario});
+    `;
+
+    console.log("Executando SQL:\n" + instrucao);
+    return database.executar(instrucao);
 }
 
 module.exports = {
-  cadastrarPontos,
-  listarPontos
+    listarResultados,
+    salvarResultado
 };

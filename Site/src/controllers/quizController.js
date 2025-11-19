@@ -1,45 +1,48 @@
 var quizModel = require("../models/quizModel");
 
-function listarPontos(req, res) {
-
-  quizModel.listarPontos().then((resultadoListarPontos) => {
-    if (resultadoListarPontos.length > 0) {
-      res.status(200).json(resultadoListarPontos);
-    } else {
-        res.status(204).send("Nenhum resultado encontrado!")
-    }
-  }).catch(function (erro) {
-    console.log(erro);
-    console.log("Houve um erro ao buscar os pontos: ", erro.sqlMessage);
-    res.status(500).json(erro.sqlMessage);
-  });
+function listarRespostas(req, res) {
+  quizModel.listarRespostas()
+    .then((resultado) => {
+      if (resultado.length > 0) {
+        res.status(200).json(resultado);
+      } else {
+        res.status(204).send("Nenhuma resposta encontrada!");
+      }
+    })
+    .catch((erro) => {
+      console.log("Erro ao listar respostas:", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
 }
 
-function cadastrarPontos(req, res) {
-  var pontos = req.body.pontos;
-  var idUsuario = req.body.idUsuario;
+function cadastrarResposta(req, res) {
+  var pergunta = req.body.pergunta;
+  var alternativa = req.body.alternativa;
+  var fkPersonagem = req.body.fkPersonagem;
+  var fkUsuario = req.body.fkUsuario;
 
-  if (pontos == undefined) {
-    res.status(400).send("pontos está undefined!");
-  } else if (idUsuario == undefined) {
-    res.status(400).send("idUsuario está undefined!");
+  if (pergunta == undefined) {
+    res.status(400).send("pergunta está undefined!");
+  } else if (alternativa == undefined) {
+    res.status(400).send("alternativa está undefined!");
+  } else if (fkPersonagem == undefined) {
+    res.status(400).send("fkPersonagem está undefined!");
+  } else if (fkUsuario == undefined) {
+    res.status(400).send("fkUsuario está undefined!");
   } else {
-    quizModel.cadastrarPontos(pontos, idUsuario)
+
+    quizModel.cadastrarResposta(pergunta, alternativa, fkPersonagem, fkUsuario)
       .then((resultado) => {
         res.status(201).json(resultado);
       })
       .catch((erro) => {
-        console.log(erro);
-        console.log(
-          "\nHouve um erro ao realizar o cadastro dos pontos! Erro: ",
-          erro.sqlMessage
-        );
+        console.log("Erro ao cadastrar resposta:", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
       });
   }
 }
 
 module.exports = {
-  listarPontos,
-  cadastrarPontos
+  listarRespostas,
+  cadastrarResposta
 };

@@ -200,6 +200,7 @@
     document.getElementById("jogo").style.display = "none";
     document.getElementById("pontuacao").style.display = "none";
   }
+
   function iniciar() {
     document.getElementById("btnIniciar").style.display = "none";
     document.getElementById("jogo").style.display = "block";
@@ -212,12 +213,12 @@
     questaoAtual = 0;
     mostrarQuestao();
   }
+
   function mostrarQuestao() {
     const questao = listaDeQuestoes[questaoAtual];
 
     document.getElementById("spanNumeroDaQuestaoAtual").innerText = questaoAtual + 1;
     document.getElementById("qtdQuestoes").innerText = listaDeQuestoes.length;
-
     document.getElementById("spanQuestaoExibida").innerText = questao.pergunta;
 
     document.getElementById("labelOpcaoUm").innerText = questao.alternativas[0].texto;
@@ -232,29 +233,31 @@
 
     document.getElementById("btnProx").disabled = false;
   }
+
   function avancar() {
     const radios = document.getElementsByName("option");
     let indiceSelecionado = -1;
 
     for (let i = 0; i < radios.length; i++) {
-      if (radios[i].checked === true) {
+      if (radios[i].checked) {
         indiceSelecionado = parseInt(radios[i].value);
       }
     }
 
     if (indiceSelecionado === -1) {
       alert("Escolha uma opção!");
+      return;
+    }
+
+    const alternativa = listaDeQuestoes[questaoAtual].alternativas[indiceSelecionado];
+    alternativa.personagens.forEach(id => pontuacaoPersonagem[id]++);
+
+    questaoAtual++;
+
+    if (questaoAtual < listaDeQuestoes.length) {
+      mostrarQuestao();
     } else {
-      const alternativa = listaDeQuestoes[questaoAtual].alternativas[indiceSelecionado];
-      alternativa.personagens.forEach(id => pontuacaoPersonagem[id]++);
-
-      questaoAtual++;
-
-      if (questaoAtual < listaDeQuestoes.length) {
-        mostrarQuestao();
-      } else {
-        finalizarJogo();
-      }
+      finalizarJogo();
     }
   }
 
@@ -280,9 +283,44 @@
 
     document.getElementById("pontuacao").style.display = "block";
     document.getElementById("resultadoPersonagem").style.display = "block";
+
+    // 🔹 Chamando aqui a função para salvar no banco
+    salvarRespostasUsuario();
   }
 
   function tentarNovamente() {
     location.reload();
   }
-</script>
+
+  function salvarRespostasUsuario() {
+    const usuarioId = localStorage.getItem("usuarioId"); 
+
+    listaDeQuestoes.forEach((questao, index) => {
+      const radios = document.getElementsByName("option");
+      let indiceSelecionado = -1;
+
+      for (let i = 0; i < radios.length; i++) {
+        if (radios[i].checked) {
+          indiceSelecionado = parseInt(radios[i].value);
+        }
+      }
+
+      if (indiceSelecionado !== -1) {
+        const alternativa = questao.alternativas[indiceSelecionado];
+
+        alternativa.personagens.forEach(idPersonagem => {
+          fetch("http://localhost:3333/resposta", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              Perguntas: questao.pergunta,
+              Alternativas: alternativa.texto,
+              fkPersonagem: idPersonagem + 1,
+              fkUsuario: parseInt(usuarioId)
+            })
+          }).catch(err => console.error("Erro ao salvar resposta:", err));
+        });
+      }
+    });
+  }
+  </script>

@@ -14,95 +14,76 @@
 </head>
 
 <body onload="onloadEsconder()">
-
   <div class="janela">
-
     <div class="header-left">
       <div class="logo">
         <img src="./assets/icon/addams-family-seeklogo.png" class="logo" width="210px" height="90px">
       </div>
-
       <div class="hello">
         <h1>Olá, <span id="b_usuario">Addams</span>!</h1>
       </div>
-
       <div class="btn-nav">
         <a href="./dashboard.html">
           <h3>Dashboard</h3>
         </a>
       </div>
-
       <div class="btn-nav">
         <a href="./quiz.html">
           <h3>Quiz</h3>
         </a>
       </div>
-
       <div class="btn-logout" onclick="limparSessao()">
         <a href="./index.html">
-        <h3>Sair</h3>
+          <h3>Sair</h3>
         </a>
       </div>
     </div>
     <div id="pontuacaoEJogo" class="pontuacaoEJogo">
-
       <button id="btnIniciar" class="btnIniciar" onclick="iniciar()">Iniciar Quiz </button>
-
-
       <div id="jogo" class="jogo">
-
         <div id="infoQuestao" class="padding-8">
-          <span><b><p style="color:rgb(0, 0, 0);">Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span id="qtdQuestoes"></span>.</p></b></span>
+          <span><b>
+              <p style="color:rgb(0, 0, 0);">Questão atual: <span id="spanNumeroDaQuestaoAtual"></span> de <span
+                  id="qtdQuestoes"></span>.</p>
+            </b></span>
         </div>
-
         <div id="perguntaDaQuestaoAtual" class="padding-8">
           <span id="spanQuestaoExibida" class="text-bold"></span>
         </div>
-
         <div id="infoAlternativas" class="padding-8">
           <span><em>Escolha somente uma opção:</em></span>
         </div>
-
         <div id="opcoes" class="flex-colunar padding-8">
-
           <label class="option">
             <input type="radio" id="primeiraOpcao" name="option" value="0">
             <span id="labelOpcaoUm"></span>
           </label>
-
           <label class="option">
             <input type="radio" id="segundaOpcao" name="option" value="1">
             <span id="labelOpcaoDois"></span>
           </label>
-
           <label class="option">
             <input type="radio" id="terceiraOpcao" name="option" value="2">
             <span id="labelOpcaoTres"></span>
           </label>
-
           <label class="option">
             <input type="radio" id="quartaOpcao" name="option" value="3">
             <span id="labelOpcaoQuatro"></span>
           </label>
-
         </div>
         <div id="pontuacao" class="pontuacao">
           <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
             <span id="pontuacaoFinal" class="width-fit-content">
-              <p style ="color: aliceblue;">Personagem final: <span id="spanPontuacaoFinal"></p></span>
+              <p style="color: aliceblue;">Personagem final: <span id="spanPontuacaoFinal"></p>
+            </span>
             </span>
             <span id="msgFinal" class="width-fit-content"></span>
-
             <div id="resultadoPersonagem" style="display: none; text-align: center; margin-top: 20px;">
               <img id="imgPersonagemFinal" src="" alt="Personagem" style="width: 200px; border-radius: 10px;">
               <p id="descricaoPersonagemFinal" style="margin-top: 10px;"></p>
             </div>
-
-
           </div>
         </div>
-
-
         <div id="botoes" class="botoes">
           <button onclick="avancar()" id="btnProx" disabled>Próxima questão</button>
           <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
@@ -112,6 +93,7 @@
 
     </div>
 </body>
+
 </html>
 <script>
   var personagens = [
@@ -284,7 +266,6 @@
     document.getElementById("pontuacao").style.display = "block";
     document.getElementById("resultadoPersonagem").style.display = "block";
 
-    // 🔹 Chamando aqui a função para salvar no banco
     salvarRespostasUsuario();
   }
 
@@ -293,7 +274,7 @@
   }
 
   function salvarRespostasUsuario() {
-    const usuarioId = localStorage.getItem("usuarioId"); 
+    const usuarioId = localStorage.getItem("usuarioId");
 
     listaDeQuestoes.forEach((questao, index) => {
       const radios = document.getElementsByName("option");
@@ -323,4 +304,4 @@
       }
     });
   }
-  </script>
+</script>

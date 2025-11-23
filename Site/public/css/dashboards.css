@@ -26,6 +26,7 @@ body {
 .janela {
   display: flex;
   min-height: 100vh;
+  background: linear-gradient(135deg, #000000, #d9d9d9);
 }
 
 
@@ -72,6 +73,11 @@ body {
 .btn-nav {
   background-color: #000000;
 }
+.btn-nav a{
+  text-decoration: none;
+  color: white;
+
+}
 
 .btn-nav:hover {
   background-color: #600000;
@@ -95,8 +101,9 @@ body {
 }
 
 
-.dash-content {
-  height: 40px;
+ .dash-content {
+  background-color: #333;
+  height: 80px;
   flex: 1;
   max-width: 1100px;
   padding: 20px;
@@ -104,62 +111,142 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  background-color: #000000;
   margin: 10px auto 0 auto;
+   border-radius: 10px;
 }
 
 
 .titulo {
-  color: #e62222;
+  color: #ffffff;
   font-size: 28px;
   font-weight: 700;
-  text-align: center;
   margin-bottom: 30px;
+  left: 15px;
 }
 
 
 .cards {
   display: flex;
   justify-content: center;
-  gap: 30px;
+  gap: 6px;
   flex-wrap: wrap;
   width: 100%;
   margin-bottom: 40px;
+  color: #ffffff;
+  
 }
 
-.card {
-  width: 246px;
+.card1 {
+  width: 260px;
   height: 120px;
-  background: white;
-  padding: 20px;
+  background-color: rgba(156, 155, 158, 0.723);
+  padding: 5px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: 0 4px 10px rgb(255, 0, 0);
+    box-shadow: 0 4px 10px rgb(255, 255, 255);
+     border-radius: 10px;
 }
+
+.card2 {
+  width: 260px;
+  height: 120px;
+  background-color: rgb(95, 95, 95);
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+    box-shadow: 0 4px 10px rgb(255, 255, 255);
+     border-radius: 10px;
+}
+
+.card3 {
+  width: 260px;
+  height: 120px;
+  background-color: rgb(64, 64, 65);
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+    box-shadow: 0 4px 10px rgb(255, 255, 255);
+     border-radius: 10px;
+}
+
+.card4 {
+  width: 260px;
+  height: 120px;
+  background-color: rgb(137, 137, 137);
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+    box-shadow: 0 4px 10px rgb(255, 255, 255);
+     border-radius: 10px;
+}
+
 
 
 .graficos-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 5px;
+  box-shadow: 0 4px 10px rgb(255, 255, 255);
+
 }
 
-.box-grafico {
+.box-grafico1 {
   background: white;
-  width: 400px;
-  height: 250px;
-  padding: 20px;
+   width: 700px;
+  height: 450px;
+  padding: 5px;
   text-align: center;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  box-shadow: 0 4px 10px rgb(231, 1, 1);
+    box-shadow: 0 4px 10px rgb(0, 0, 0);
+     border-radius: 10px;
+         box-shadow: 0 4px 10px rgb(255, 255, 255);
+
 }
 
+.box-grafico2 {
+  background: white;
+  width: 400px;
+  height: 450px;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+    box-shadow: 0 4px 10px rgb(0, 0, 0);
+     border-radius: 10px;
+         box-shadow: 0 4px 10px rgb(255, 255, 255);
+
+}
+
+.box-grafico3 {
+  background: white;
+  width: 700px;
+  height: 250px;
+  padding: 5px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  box-shadow: 0 4px 10px rgb(0, 0, 0);
+   border-radius: 10px;
+}
 @media (max-width: 1024px) {
   .graficos-grid {
     grid-template-columns: 1fr;

@@ -20,7 +20,7 @@
         <img src="./assets/icon/addams-family-seeklogo.png" class="logo" width="210px" height="90px">
       </div>
       <div class="hello">
-        <h1>Olá, <span id="b_usuario">Addams</span>!</h1>
+        <h1>Olá, <span id="b_usuario"> Addams</span>!</h1>
       </div>
       <div class="btn-nav">
         <a href="./dashboard.html">
@@ -38,8 +38,15 @@
         </a>
       </div>
     </div>
-    <div id="pontuacaoEJogo" class="pontuacaoEJogo">
-      <button id="btnIniciar" class="btnIniciar" onclick="iniciar()">Iniciar Quiz </button>
+    <div class="container1">
+      <div class="frase"><b style="color:white">Bem vindo Addams! <br>
+          Faça o Quiz de Personalidade da Família Addams e descubra quem você é da Família♥
+        </b> <br><br>
+        <div id="pontuacaoEJogo" class="pontuacaoEJogo">
+          <button id="btnIniciar" class="btnIniciar" onclick="iniciar()">Iniciar Quiz </button>
+        </div>
+      </div>
+
       <div id="jogo" class="jogo">
         <div id="infoQuestao" class="padding-8">
           <span><b>
@@ -51,7 +58,7 @@
           <span id="spanQuestaoExibida" class="text-bold"></span>
         </div>
         <div id="infoAlternativas" class="padding-8">
-          <span><em>Escolha somente uma opção:</em></span>
+          <span><em><b style="color: black;">Escolha somente uma opção:</b></em></span>
         </div>
         <div id="opcoes" class="flex-colunar padding-8">
           <label class="option">
@@ -71,31 +78,33 @@
             <span id="labelOpcaoQuatro"></span>
           </label>
         </div>
-        <div id="pontuacao" class="pontuacao">
-          <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
-            <span id="pontuacaoFinal" class="width-fit-content">
-              <p style="color: aliceblue;">Personagem final: <span id="spanPontuacaoFinal"></p>
-            </span>
-            </span>
-            <span id="msgFinal" class="width-fit-content"></span>
-            <div id="resultadoPersonagem" style="display: none; text-align: center; margin-top: 20px;">
-              <img id="imgPersonagemFinal" src="" alt="Personagem" style="width: 200px; border-radius: 10px;">
-              <p id="descricaoPersonagemFinal" style="margin-top: 10px;"></p>
-            </div>
+      </div>
+      <div id="pontuacao" class="pontuacao">
+        <div id="pontuacaoFinalJogo" class="flex-colunar padding-8">
+          <span id="pontuacaoFinal" class="width-fit-content">
+            <p style="color: aliceblue;">Personagem final: <span id="spanPontuacaoFinal"></p>
+          </span>
+          <span id="msgFinal" class="width-fit-content"></span>
+          <div id="resultadoPersonagem" style="display: none; text-align: center; margin-top: 20px;">
+            <img id="imgPersonagemFinal" src="" alt="Personagem" style="width: 200px; border-radius: 10px;">
+            <p id="descricaoPersonagemFinal" style="margin-top: 10px;"></p>
           </div>
         </div>
-        <div id="botoes" class="botoes">
-          <button onclick="avancar()" id="btnProx" disabled>Próxima questão</button>
-          <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
-        </div>
-
       </div>
+      <div id="botoes" class="botoes">
+        <button onclick="avancar()" id="btnProx" disabled>Próxima questão</button>
+        <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+      </div>
+
+
 
     </div>
 </body>
 
 </html>
 <script>
+  document.getElementById("b_usuario").innerText = sessionStorage.NOME_USUARIO || "Addams";
+
   var personagens = [
     {
       nome: "Mortícia Addams",
@@ -144,10 +153,9 @@
     },
 
   ];
-
   var listaDeQuestoes = [
     {
-      pergunta: "Qual dessas características mais combina com você?",
+      pergunta: `<b style="color:black"><br>Qual dessas características mais combina com você?</b>`,
       alternativas: [
         { texto: " Me considero elegante e sombria", personagens: [0] },
         { texto: " Me considero romântico e excêntrico", personagens: [1] },
@@ -156,7 +164,7 @@
       ]
     },
     {
-      pergunta: "Como você reage em situações inesperadas?",
+      pergunta: `<b style="color:black"><br>Como você reage em situações inesperadas?</b>`,
       alternativas: [
         { texto: "Gosto de ajudar e cuidar de todos", personagens: [1, 4] },
         { texto: "Fico observando e planejando", personagens: [2, 0] },
@@ -165,32 +173,44 @@
       ]
     },
     {
-      pergunta: "Qual descrição se parece mais com você?",
+      pergunta: `<b style="color:black"><br>Qual descrição se parece mais com você?</b>`,
       alternativas: [
         { texto: "Fofinho e peculiar", personagens: [6] },
         { texto: "Idoso excêntrico e sábio", personagens: [8] },
         { texto: "Excêntrico e amoroso", personagens: [4] },
         { texto: "Esperto e leal", personagens: [5] }
       ]
+    },
+    {
+      pergunta: `<b style="color:black"><br>Como você costuma agir no dia a dia?</b>`,
+      alternativas: [
+        { texto: "Ajudo os outros de forma discreta e eficiente", personagens: [7, 4] },
+        { texto: "Uso minha experiência para dar conselhos e resolver problemas", personagens: [8, 0] },
+        { texto: "Sou calmo, mas sempre observando tudo ao redor", personagens: [2, 7] },
+        { texto: "Sou espontâneo e gosto de agir com energia", personagens: [1, 3] }
+      ]
     }
   ];
-
   let questaoAtual = 0;
   let pontuacaoPersonagem = {};
 
   function onloadEsconder() {
     document.getElementById("jogo").style.display = "none";
     document.getElementById("pontuacao").style.display = "none";
+    document.getElementById("jogo").style.display = "none";
+    document.getElementById("pontuacao").style.display = "none";
+    document.getElementById("btnProx").style.display = "none";
+    document.getElementById("btnTentarNovamente").style.display = "none";
   }
 
   function iniciar() {
     document.getElementById("btnIniciar").style.display = "none";
     document.getElementById("jogo").style.display = "block";
 
+    document.getElementById("btnProx").style.display = "inline-block";
+    document.getElementById("btnTentarNovamente").style.display = "inline-block";
     pontuacaoPersonagem = {};
-    for (let i = 0; i < personagens.length; i++) {
-      pontuacaoPersonagem[i] = 0;
-    }
+    personagens.forEach((_, i) => pontuacaoPersonagem[i] = 0);
 
     questaoAtual = 0;
     mostrarQuestao();
@@ -201,61 +221,36 @@
 
     document.getElementById("spanNumeroDaQuestaoAtual").innerText = questaoAtual + 1;
     document.getElementById("qtdQuestoes").innerText = listaDeQuestoes.length;
-    document.getElementById("spanQuestaoExibida").innerText = questao.pergunta;
 
+    document.getElementById("spanQuestaoExibida").innerHTML = questao.pergunta;
     document.getElementById("labelOpcaoUm").innerText = questao.alternativas[0].texto;
     document.getElementById("labelOpcaoDois").innerText = questao.alternativas[1].texto;
     document.getElementById("labelOpcaoTres").innerText = questao.alternativas[2].texto;
     document.getElementById("labelOpcaoQuatro").innerText = questao.alternativas[3].texto;
 
-    const radios = document.getElementsByName("option");
-    for (let i = 0; i < radios.length; i++) {
-      radios[i].checked = false;
-    }
+    document.getElementsByName("option").forEach(r => r.checked = false);
 
     document.getElementById("btnProx").disabled = false;
   }
 
   function avancar() {
     const radios = document.getElementsByName("option");
-    let indiceSelecionado = -1;
+    let indiceSelecionado = Array.from(radios).findIndex(r => r.checked);
 
-    for (let i = 0; i < radios.length; i++) {
-      if (radios[i].checked) {
-        indiceSelecionado = parseInt(radios[i].value);
-      }
-    }
+    if (indiceSelecionado === -1) { alert("Escolha uma opção!"); return; }
 
-    if (indiceSelecionado === -1) {
-      alert("Escolha uma opção!");
-      return;
-    }
-
-    const alternativa = listaDeQuestoes[questaoAtual].alternativas[indiceSelecionado];
-    alternativa.personagens.forEach(id => pontuacaoPersonagem[id]++);
-
+    listaDeQuestoes[questaoAtual].alternativas[indiceSelecionado].personagens.forEach(id => pontuacaoPersonagem[id]++);
     questaoAtual++;
 
-    if (questaoAtual < listaDeQuestoes.length) {
-      mostrarQuestao();
-    } else {
-      finalizarJogo();
-    }
+    questaoAtual < listaDeQuestoes.length ? mostrarQuestao() : finalizarJogo();
   }
-
+  
   function finalizarJogo() {
     document.getElementById("btnProx").disabled = true;
     document.getElementById("btnTentarNovamente").disabled = false;
 
-    let maiorPontuacao = -1;
-    let idDoVencedor = 0;
-
-    for (let i = 0; i < personagens.length; i++) {
-      if (pontuacaoPersonagem[i] > maiorPontuacao) {
-        maiorPontuacao = pontuacaoPersonagem[i];
-        idDoVencedor = i;
-      }
-    }
+    let idDoVencedor = parseInt(Object.keys(pontuacaoPersonagem)
+        .reduce((a, b) => pontuacaoPersonagem[a] > pontuacaoPersonagem[b] ? a : b));
 
     const vencedor = personagens[idDoVencedor];
 
@@ -263,45 +258,45 @@
     document.getElementById("imgPersonagemFinal").src = vencedor.img;
     document.getElementById("descricaoPersonagemFinal").innerText = vencedor.descricao;
 
+    document.getElementById("jogo").style.display = "none";
     document.getElementById("pontuacao").style.display = "block";
     document.getElementById("resultadoPersonagem").style.display = "block";
 
     salvarRespostasUsuario();
-  }
+}
 
   function tentarNovamente() {
     location.reload();
   }
 
-  function salvarRespostasUsuario() {
-    const usuarioId = localStorage.getItem("usuarioId");
+function salvarRespostasUsuario() {
+    const usuarioId = parseInt(sessionStorage.ID_USUARIO);
+    if (!usuarioId) {
+        console.error("Usuário não está logado!");
+        return;
+    }
+    const caracteristicasMap = [1, 2, 3, 4, 11, 12, 9, 13, 10];
+    const idDoVencedor = parseInt(
+        Object.keys(pontuacaoPersonagem).reduce(
+            (a, b) => pontuacaoPersonagem[a] > pontuacaoPersonagem[b] ? a : b
+        )
+    );
 
-    listaDeQuestoes.forEach((questao, index) => {
-      const radios = document.getElementsByName("option");
-      let indiceSelecionado = -1;
+    const fkQuiz = idDoVencedor + 1;
+    const fkCaracteristica = caracteristicasMap[idDoVencedor];
 
-      for (let i = 0; i < radios.length; i++) {
-        if (radios[i].checked) {
-          indiceSelecionado = parseInt(radios[i].value);
-        }
-      }
-
-      if (indiceSelecionado !== -1) {
-        const alternativa = questao.alternativas[indiceSelecionado];
-
-        alternativa.personagens.forEach(idPersonagem => {
-          fetch("http://localhost:3333/resposta", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({
-              Perguntas: questao.pergunta,
-              Alternativas: alternativa.texto,
-              fkPersonagem: idPersonagem + 1,
-              fkUsuario: parseInt(usuarioId)
-            })
-          }).catch(err => console.error("Erro ao salvar resposta:", err));
-        });
-      }
-    });
-  }
+    fetch("http://localhost:3333/resultado/cadastrar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+            fkUsuario: usuarioId,
+            fkQuiz: fkQuiz,
+            fkCaracteristica: fkCaracteristica
+        })
+    })
+    .then(res => res.json())
+    .then(data => console.log("Resultado salvo com sucesso:", data))
+    .catch(err => console.error("Erro ao salvar resultado:", err));
+}
+</script
 </script>

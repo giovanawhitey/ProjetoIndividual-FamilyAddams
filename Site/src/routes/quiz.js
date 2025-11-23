@@ -3,12 +3,8 @@ var router = express.Router();
 
 var quizController = require("../controllers/quizController");
 
-router.get("/listarPontos", function (req, res) {
-  quizController.listarPontos(req, res);
-});
-
-router.post("/cadastrarPontos", function (req, res) {
-  quizController.cadastrarPontos(req, res);
+router.get("/listar", function(req, res) {
+    quizController.listar(req, res);
 });
 
 module.exports = router;

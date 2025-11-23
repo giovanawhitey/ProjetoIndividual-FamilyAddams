@@ -1,35 +1,18 @@
-
 var database = require("../database/config");
 
-function listarResultados() {
-    console.log("Listando resultados do quiz...");
-
-    var instrucao = `
-        SELECT 
-            p.nome AS personagem,
-            COUNT(*) AS quantidade
-        FROM RespostasUsuario r
-        JOIN Personagens p ON r.fkPersonagem = p.idPersonagem
-        GROUP BY p.nome
-        ORDER BY quantidade DESC;
-    `;
-
-    console.log("Executando SQL:\n" + instrucao);
-    return database.executar(instrucao);
+function buscarPorId(id) {
+    var instrucaoSql = `SELECT * FROM Quiz WHERE idQuiz = '${id}'`;
+    return database.executar(instrucaoSql);
 }
 
-function salvarResultado(idUsuario, idPersonagem) {
-
-    var instrucao = `
-        INSERT INTO RespostasUsuario (Perguntas, Alternativas, fkPersonagem, fkUsuario)
-        VALUES ('Final', 'Resultado do Quiz', ${idPersonagem}, ${idUsuario});
-    `;
-
-    console.log("Executando SQL:\n" + instrucao);
-    return database.executar(instrucao);
+function listar() {
+    var instrucaoSql = `SELECT idQuiz, nome, descricao, img FROM Quiz`;
+    return database.executar(instrucaoSql);
 }
 
-module.exports = {
-    listarResultados,
-    salvarResultado
-};
+function cadastrar(nome, descricao, img) {
+    var instrucaoSql = `INSERT INTO Quiz (nome, descricao, img) VALUES ('${nome}', '${descricao}', '${img}')`;
+    return database.executar(instrucaoSql);
+}
+
+module.exports = { buscarPorId, listar, cadastrar };

@@ -11,25 +11,18 @@ function autenticar(req, res) {
     } else {
 
         usuarioModel.autenticar(email, senha)
-            .then(function (resultadoAutenticar) {
-
-                if (resultadoAutenticar.length == 1) {
-
-                    console.log("Usuário encontrado:", resultadoAutenticar);
-                    res.json({
-                        idUsuario: resultadoAutenticar[0].idUsuario,
-                        nome: resultadoAutenticar[0].nome,
-                        email: resultadoAutenticar[0].email
-                    });
-
-                } else if (resultadoAutenticar.length == 0) {
+            .then(function (resultado) {
+                if (resultado.length == 1) {
+                    console.log("Usuário encontrado:", resultado);
+                    res.json(resultado[0]);
+                } else if (resultado.length == 0) {
                     res.status(403).send("Email e/ou senha inválido(s)");
                 } else {
                     res.status(403).send("Mais de um usuário com o mesmo login e senha!");
                 }
             })
             .catch(function (erro) {
-                console.log("Erro ao realizar login:", erro.sqlMessage);
+                console.log("Erro ao autenticar:", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             });
     }
@@ -59,7 +52,25 @@ function cadastrar(req, res) {
     }
 }
 
+
+function listarTodos(req, res) {
+    usuarioModel.listarTodos()
+        .then((resultado) => {
+            if (resultado.length > 0) {
+                res.status(200).json({ totalUsuarios: resultado[0].total_usuarios }); 
+            } else {
+                res.status(204).send("Nenhum usuário encontrado!");
+            }
+        })
+        .catch((erro) => {
+            console.log("Houve um erro ao buscar o total de usuários: ", erro.sqlMessage);
+            res.status(500).json(erro.sqlMessage);
+        });
+}
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar, 
+    listarTodos
 };

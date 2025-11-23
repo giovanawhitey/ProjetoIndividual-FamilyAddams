@@ -3,8 +3,8 @@ var router = express.Router();
 
 var dashboardController = require("../controllers/dashboardController");
 
-router.get("/dados", function(req, res) {
-    dashboardController.obterDadosDashboard(req, res);
+router.get("/dadosUsuario/:idUsuario", function(req, res) {
+    dashboardController.obterDadosUsuario(req, res);
 });
 
 

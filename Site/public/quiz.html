@@ -94,6 +94,7 @@
       <div id="botoes" class="botoes">
         <button onclick="avancar()" id="btnProx" disabled>Próxima questão</button>
         <button onclick="tentarNovamente()" id="btnTentarNovamente" disabled>Tentar novamente</button>
+        <button onclick="resultado()" id="btnResultado"disabled>Dashboard do Seu Resultado</button>
       </div>
 
 
@@ -200,7 +201,8 @@
     document.getElementById("jogo").style.display = "none";
     document.getElementById("pontuacao").style.display = "none";
     document.getElementById("btnProx").style.display = "none";
-    document.getElementById("btnTentarNovamente").style.display = "none";
+    document.getElementById("btnTentarNovamente").style.display = "none";7
+      document.getElementById("btnResultado").style.display = "none";
   }
 
   function iniciar() {
@@ -248,6 +250,8 @@
   function finalizarJogo() {
     document.getElementById("btnProx").disabled = true;
     document.getElementById("btnTentarNovamente").disabled = false;
+       document.getElementById("btnResultado").style.display = "inline-block";
+    document.getElementById("btnResultado").disabled = false;
 
     let idDoVencedor = parseInt(Object.keys(pontuacaoPersonagem)
         .reduce((a, b) => pontuacaoPersonagem[a] > pontuacaoPersonagem[b] ? a : b));
@@ -298,5 +302,16 @@ function salvarRespostasUsuario() {
     .then(data => console.log("Resultado salvo com sucesso:", data))
     .catch(err => console.error("Erro ao salvar resultado:", err));
 }
-</script
+function resultado() {
+    const idDoVencedor = parseInt(
+        Object.keys(pontuacaoPersonagem).reduce(
+            (a, b) => pontuacaoPersonagem[a] > pontuacaoPersonagem[b] ? a : b
+        )
+    );
+
+    sessionStorage.ID_PERSONAGEM = idDoVencedor;
+    sessionStorage.NOME_PERSONAGEM = personagens[idDoVencedor].nome;
+
+    window.location.href = "./dashboard.html";
+}
 </script>

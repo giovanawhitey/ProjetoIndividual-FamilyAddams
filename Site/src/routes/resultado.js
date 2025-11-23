@@ -15,5 +15,13 @@ router.get("/tentativas/:id", function(req, res) {
     resultadoController.buscarResultadoFkUsuario(req, res);
 });
 
+router.get("/personagemUser/:idUsuario", function(req, res) {
+    resultadoController.personagemUser(req, res);
+});
+
+router.get("/caracteristicaUser/:idUsuario", function(req, res) {
+    resultadoController.caracteristicaUser(req, res);
+});
+
 
 module.exports = router;

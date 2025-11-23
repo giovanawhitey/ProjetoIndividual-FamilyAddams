@@ -1,55 +1,58 @@
 var database = require("../database/config");
 
-function obterDadosDashboard(req, res) {
-    console.log("Obtendo dados da dashboard");
+function obterDadosUsuario(req, res) {
+    console.log("Obtendo dados da dashboard do usuário");
 
-    var sqlUsuarios = "SELECT COUNT(*) AS totalUsuarios FROM Usuario";
-    var sqlResultados = "SELECT COUNT(*) AS totalResultados FROM Resultado";
-    var sqlTopPersonagens = `
-        SELECT Q.nome, COUNT(R.idResultado) AS votos
-        FROM Resultado R
-        JOIN Quiz Q ON R.fkQuiz = Q.idQuiz
-        GROUP BY Q.nome
-        ORDER BY votos DESC
-        LIMIT 5
-    `;
-    var sqlTopCaracteristicas = `
+    var idUsuario = req.params.idUsuario;
+
+    var sqlCaracteristicas = `
         SELECT C.nomeCaracteristica, COUNT(R.idResultado) AS votos
         FROM Resultado R
         JOIN Caracteristica C ON R.fkCaracteristica = C.idCaracteristica
+        WHERE R.fkUsuario = ${idUsuario}
         GROUP BY C.nomeCaracteristica
         ORDER BY votos DESC
-        LIMIT 5
     `;
 
-    database.executar(sqlUsuarios).then(function(usuarios) {
-        database.executar(sqlResultados).then(function(resultados) {
-            database.executar(sqlTopPersonagens).then(function(topPersonagens) {
-                database.executar(sqlTopCaracteristicas).then(function(topCaracteristicas) {
-                    res.status(200).json({
-                        totalUsuarios: usuarios[0].totalUsuarios,
-                        totalResultados: resultados[0].totalResultados,
-                        topPersonagens,
-                        topCaracteristicas
-                    });
-                }).catch(function(erro) {
-                    console.log("Erro ao obter top características.", erro.sqlMessage);
-                    res.status(500).json(erro.sqlMessage);
+    var sqlPersonagens = `
+        SELECT Q.nome, COUNT(R.idResultado) AS votos
+        FROM Resultado R
+        JOIN Quiz Q ON R.fkQuiz = Q.idQuiz
+        WHERE R.fkUsuario = ${idUsuario}
+        GROUP BY Q.nome
+        ORDER BY votos DESC
+    `;
+
+    var sqlTentativas = `
+        SELECT COUNT(*) AS totalTentativas
+        FROM Resultado
+        WHERE fkUsuario = ${idUsuario}
+    `;
+
+    database.executar(sqlCaracteristicas).then(function(caracteristicas) {
+        database.executar(sqlPersonagens).then(function(personagens) {
+            database.executar(sqlTentativas).then(function(tentativas) {
+
+                res.status(200).json({
+                    caracteristicas: caracteristicas,
+                    personagens: personagens,
+                    tentativas: tentativas[0].totalTentativas
                 });
+
             }).catch(function(erro) {
-                console.log("Erro ao obter top personagens.", erro.sqlMessage);
+                console.log("Erro ao obter tentativas:", erro.sqlMessage);
                 res.status(500).json(erro.sqlMessage);
             });
         }).catch(function(erro) {
-            console.log("Erro ao contar resultados.", erro.sqlMessage);
+            console.log("Erro ao obter personagens:", erro.sqlMessage);
             res.status(500).json(erro.sqlMessage);
         });
     }).catch(function(erro) {
-        console.log("Erro ao contar usuários.", erro.sqlMessage);
+        console.log("Erro ao obter características:", erro.sqlMessage);
         res.status(500).json(erro.sqlMessage);
     });
 }
 
 module.exports = {
-    obterDadosDashboard
+    obterDadosUsuario
 };

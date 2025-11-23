@@ -2,7 +2,6 @@ var resultadoModel = require("../models/resultadoModel");
 
 function cadastrar(req, res) {
   var resultado = req.body;
-  console.log(`Cadastrando resultado para usuário ${resultado.fkUsuario}`);
 
   resultadoModel
     .cadastrar(
@@ -20,8 +19,6 @@ function cadastrar(req, res) {
 }
 
 function listar(req, res) {
-  console.log("Listando todos os resultados");
-
   resultadoModel
     .listar()
     .then(function (resultado) {
@@ -32,31 +29,50 @@ function listar(req, res) {
       }
     })
     .catch(function (erro) {
-      console.log("Houve um erro ao listar os resultados.", erro.sqlMessage);
+      console.log("Erro ao listar resultados.", erro.sqlMessage);
       res.status(500).json(erro.sqlMessage);
     });
 }
 
-
-
-
-
-
 function buscarResultadoFkUsuario(req, res) {
   const idUsuario = req.params.id;
 
-  if (!idUsuario) {
-    return res.status(400).json({ erro: "ID do usuário não fornecido" });
-  }
-
   resultadoModel
     .buscarResultadoFkUsuario(idUsuario)
-    .then(resultado => {
+    .then(function (resultado) {
       const tentativas = resultado[0].total_tentativas;
       res.json({ tentativas });
     })
-    .catch(erro => {
-      console.error("Erro ao buscar tentativas:", erro.sqlMessage || erro);
+    .catch(function (erro) {
+      console.error("Erro ao buscar tentativas:", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function personagemUser(req, res) {
+  var idUsuario = req.params.idUsuario;
+
+  resultadoModel
+    .personagemUser(idUsuario)
+    .then(function (resultado) {
+      res.status(200).json(resultado);
+    })
+    .catch(function (erro) {
+      console.log("Erro ao buscar personagens do usuário.", erro.sqlMessage);
+      res.status(500).json(erro.sqlMessage);
+    });
+}
+
+function caracteristicaUser(req, res) {
+  var idUsuario = req.params.idUsuario;
+
+  resultadoModel
+    .caracteristicaUser(idUsuario)
+    .then(function (resultado) {
+      res.status(200).json(resultado);
+    })
+    .catch(function (erro) {
+      console.log("Erro ao buscar características do usuário.", erro.sqlMessage);
       res.status(500).json(erro.sqlMessage);
     });
 }
@@ -65,4 +81,6 @@ module.exports = {
   cadastrar,
   listar,
   buscarResultadoFkUsuario,
+  personagemUser,
+  caracteristicaUser
 };

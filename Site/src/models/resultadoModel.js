@@ -36,8 +36,36 @@ function buscarResultadoFkUsuario(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function personagemUser(idUsuario) {
+    var instrucaoSql = `
+        SELECT Q.nome, COUNT(*) AS votos
+        FROM Resultado R
+        JOIN Quiz Q ON R.fkQuiz = Q.idQuiz
+        WHERE R.fkUsuario = ${idUsuario}
+        GROUP BY Q.nome
+        ORDER BY votos DESC
+        LIMIT 5;
+    `;
+    return database.executar(instrucaoSql);
+}
+
+function caracteristicaUser(idUsuario) {
+    var instrucaoSql = `
+        SELECT C.nomeCaracteristica, COUNT(*) AS votos
+        FROM Resultado R
+        JOIN Caracteristica C ON R.fkCaracteristica = C.idCaracteristica
+        WHERE R.fkUsuario = ${idUsuario}
+        GROUP_BY C.nomeCaracteristica
+        ORDER BY votos DESC
+        LIMIT 5;
+    `;
+    return database.executar(instrucaoSql);
+}
+
 module.exports = {
     listar,
     cadastrar,
-    buscarResultadoFkUsuario
+    buscarResultadoFkUsuario,
+    personagemUser,
+    caracteristicaUser
 };

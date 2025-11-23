@@ -25,10 +25,9 @@
 
             <div class="btn-nav btn-selected">
                 <a href="./dashboard.html">
-                    <h3>Dashboard</h3>
+                    <h3>Dashboard </h3>
                 </a>
             </div>
-
             <div class="btn-nav">
                 <a href="./quiz.html">
                     <h3>Quiz</h3>
@@ -41,25 +40,25 @@
         </div>
 
         <div class="dash-content">
-            <h2 class="titulo">Dashboard | Quiz Família Addams</h2>
+            <h2 class="titulo">Dashboard  |  Quiz Família Addams</h2>
             <div class="cards">
                 <div class="card1">
-                    <h3>Números de Jogadores <br /></h3>
-                    <br />
+                    <h3>Jogadores Registrados<br /></h3><br>
+                    
                     <h3 id="totalJogadores">0</h3>
                 </div>
                 <div class="card2">
                     <h3>Tentativas Realizadas <br /></h3>
-                    <br /> <br>
+                    <br /> 
                     <h3 id="totalTentativas"></h3>
                     <br /><br /><br /><br />
                 </div>
                 <div class="card3">
-                    <h3>Personagem mais comum<br/></h3>
+                    <h3>Resultado Personagem<br/></h3><br>
                     <h3 id="personagemTop">-</h3>
                 </div>
                 <div class="card4">
-                    <h3>Características Comuns <br /></h3>
+                    <h3>Características em Comuns<br /></h3><br>
                     <h3 id="caracTop">-</h3>
                 </div>
             </div>
@@ -86,99 +85,64 @@
     let graficoLinha = null;
     let graficoBarra = null;
 
-
     function obterDados() {
         atualizarDashboard();
-
     }
 
     function atualizarDashboard() {
-        processarResultados();
+        obterTotalUsuarios();
+        obterDadosUsuario();
     }
 
-    function processarResultados(resultados) {
+    function obterTotalUsuarios() {
         fetch("/usuarios/listarTodos")
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error("Erro na API");
-                }
-                return response.json();
-            })
-            .then(data => {
-                const totalUsuarios = data.totalUsuarios;
-                console.log(totalUsuarios)
-                document.getElementById("totalJogadores").innerText = totalUsuarios;
-            })
-            .catch(error => {
-                console.error("Erro ao obter total de usuários:", error);
-            });
-
-        const idUsuario = sessionStorage.getItem("ID_USUARIO");
-
-        fetch(`/resultado/tentativas/${idUsuario}`)
             .then(r => r.json())
             .then(data => {
+                document.getElementById("totalJogadores").innerText = data.totalUsuarios;
+            })
+            .catch(err => console.error("Erro ao carregar jogadores:", err));
+    }
+
+    function obterDadosUsuario() {
+        const idUsuario = sessionStorage.ID_USUARIO;
+
+        fetch(`/dashboard/dadosUsuario/${idUsuario}`)
+            .then(r => r.json())
+            .then(data => {
+                console.log("DADOS DO USUÁRIO:", data);
+
                 document.getElementById("totalTentativas").innerText = data.tentativas;
-            })
-            .catch(err => console.error(err));
 
-        fetch(`/dashboard/dados`).then(r => r.json()).then(data => {
-            console.log(data)
+                if (data.personagens.length > 0) {
+                    let topPerso = data.personagens[0];
+                    document.getElementById("personagemTop").innerText =
+                        `${topPerso.nome} – ${topPerso.votos} votos`;
+                } else {
+                    document.getElementById("personagemTop").innerText = "-";
+                }
 
-            let personagemMaisEscolhido = data.topPersonagens[0].nome;
-            let votosDoMaisEscolhido = data.topPersonagens[0].votos;
-            document.getElementById("personagemTop").innerHTML = ` ${personagemMaisEscolhido} – ${votosDoMaisEscolhido} votos`
-            let caracteristicaComum = data.topCaracteristicas[0].nomeCaracteristica;
-            let votosComum = data.topCaracteristicas[0].votos;
-            document.getElementById("caracTop").innerHTML = ` ${caracteristicaComum} – ${votosComum} votos`
-        })
-        fetch(`/dashboard/dados`)
-            .then(r => r.json())
-            .then(data => {
-                console.log("DADOS RECEBIDOS:", data);
-
-                let personagemMaisEscolhido = data.topPersonagens[0].nome;
-                let votosDoMaisEscolhido = data.topPersonagens[0].votos;
-                document.getElementById("personagemTop").innerHTML =
-                    `${personagemMaisEscolhido} – ${votosDoMaisEscolhido} votos`;
-
-                let caracteristicaComum = data.topCaracteristicas[0].nomeCaracteristica;
-                let votosComum = data.topCaracteristicas[0].votos;
-                document.getElementById("caracTop").innerHTML =
-                    `${caracteristicaComum} – ${votosComum} votos`;
+                if (data.caracteristicas.length > 0) {
+                    let topCarac = data.caracteristicas[0];
+                    document.getElementById("caracTop").innerText =
+                        `${topCarac.nomeCaracteristica} – ${topCarac.votos} votos`;
+                } else {
+                    document.getElementById("caracTop").innerText = "-";
+                }
 
                 const countCaracteristica = {};
-                (data.topCaracteristicas || []).forEach(item => {
+                data.caracteristicas.forEach(item => {
                     countCaracteristica[item.nomeCaracteristica] = item.votos;
                 });
-                plotarGraficoLinha(countCaracteristica);
 
                 const countPersonagem = {};
-                (data.topPersonagens || []).forEach(item => {
+                data.personagens.forEach(item => {
                     countPersonagem[item.nome] = item.votos;
                 });
+
+                plotarGraficoLinha(countCaracteristica);
                 plotarGraficoBarra(countPersonagem);
             })
-            .catch(err => console.error("ERRO NA ROTA /dashboard/dados:", err));
-
-        const countPersonagem = {};
-        const countCaracteristica = {};
-
-
-
-        resultados.forEach(r => {
-            countPersonagem[r.personagem] = (countPersonagem[r.personagem] || 0) + 1;
-            countCaracteristica[r.caracteristica] = (countCaracteristica[r.caracteristica] || 0) + 1;
-        });
-
-        const personagemTop = Object.keys(countPersonagem).reduce((a, b) => countPersonagem[a] > countPersonagem[b] ? a : b, "-");
-        const caracTop = Object.keys(countCaracteristica).reduce((a, b) => countCaracteristica[a] > countCaracteristica[b] ? a : b, "-");
-
-        document.getElementById('personagemTop').innerText = personagemTop;
-        document.getElementById('caracTop').innerText = caracTop;
-
-        plotarGraficoLinha(data.topCaracteristicasReduce);
-        plotarGraficoBarra(data.topPersonagensReduce);
+            .catch(err => console.error("Erro ao carregar dados do usuário:", err));
     }
 
     function plotarGraficoLinha(countCaracteristica) {
@@ -186,90 +150,70 @@
         const valores = Object.values(countCaracteristica);
         const ctx = document.getElementById('barraCaracteristicas').getContext('2d');
 
-        const maior = valores.length ? Math.max(...valores) : 0;
-        const suggestedMax = Math.max(10, Math.ceil(maior * 1.2));
+        if (graficoLinha) {
+            graficoLinha.destroy();
+        }
 
-        if (!graficoLinha) {
-            graficoLinha = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels,
-                    datasets: [{
-                        label: 'Popularidade das Características',
-                        data: valores,
-                        backgroundColor: ['rgb(15, 15, 15)',
-                        'rgb(70, 0, 90)', 
-                        'rgb(15, 20, 92)', 
-                        'rgb(102, 7, 140)', 
+        graficoLinha = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels,
+                datasets: [{
+                    label: 'Popularidade das Características',
+                    data: valores,
+                    backgroundColor: [
+                        'rgb(15, 15, 15)',
+                        'rgb(70, 0, 90)',
+                        'rgb(15, 20, 92)',
+                        'rgb(102, 7, 140)',
                         'rgb(56, 135, 63)'
                     ],
-                        borderWidth: 2,
-                        fill: true
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    plugins: {
-                        legend: { display: false }
-                    },
-                    scales: {
-                        x: {
-                            suggestedMax: suggestedMax,
-                            ticks: {
-                                stepSize: suggestedMax <= 10 ? 1 : Math.ceil(suggestedMax / 10)
-                            }
-                        }
-                    }
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                indexAxis: 'y',
+                responsive: true,
+                plugins: {
+                    legend: { display: false }
                 }
-            });
-        } else {
-            graficoLinha.data.labels = labels;
-            graficoLinha.data.datasets[0].data = valores;
-            const novoMaior = valores.length ? Math.max(...valores) : 0;
-            graficoLinha.options.scales.x.suggestedMax = Math.max(10, Math.ceil(novoMaior * 1.2));
-            graficoLinha.update();
-        }
+            }
+        });
     }
 
     function plotarGraficoBarra(countPersonagem) {
-        const sorted = Object.entries(countPersonagem)
-            .sort((a, b) => b[1] - a[1])
-            .slice(0, 5);
-
-        const labels = sorted.map(x => x[0]);
-        const data = sorted.map(x => x[1]);
+        const labels = Object.keys(countPersonagem);
+        const valores = Object.values(countPersonagem);
 
         const ctx = document.getElementById('pizzaPersonagens').getContext('2d');
-        window.graficoBarra = new Chart(ctx, {
+
+        if (graficoBarra) {
+            graficoBarra.destroy();
+        }
+
+        graficoBarra = new Chart(ctx, {
             type: 'pie',
             data: {
                 labels,
                 datasets: [{
-                    label: 'Top 5 Personagens',
-                    data,
-                    backgroundColor: ['rgb(15, 15, 15)',
-                        'rgb(70, 0, 90)', 
-                        'rgb(15, 20, 92)', 
-                        'rgb(102, 7, 140)', 
+                    data: valores,
+                    backgroundColor: [
+                        'rgb(15, 15, 15)',
+                        'rgb(70, 0, 90)',
+                        'rgb(15, 20, 92)',
+                        'rgb(102, 7, 140)',
                         'rgb(56, 135, 63)'
-                    
-                    ],
-                    borderWidth: 1
+                    ]
                 }]
             },
             options: {
                 responsive: true,
                 plugins: {
-                    legend: {
-                        display: true,
-                        labels: {
-                            color: '#000'
-                        }
-                    }
-                },
-                cutout: 0
+                    legend: { display: true }
+                }
             }
         });
     }
 </script>
+
+    

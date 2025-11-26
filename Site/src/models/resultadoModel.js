@@ -36,6 +36,19 @@ function buscarResultadoFkUsuario(idUsuario) {
     return database.executar(instrucaoSql);
 }
 
+function buscarUltimoPersonagem(idUsuario) {
+    var instrucaoSql = `
+        SELECT 
+            Q.nome AS ultimoPersonagem
+        FROM Resultado R
+        JOIN Quiz Q ON R.fkQuiz = Q.idQuiz
+        WHERE R.fkUsuario = ${idUsuario}
+        ORDER BY R.idResultado DESC
+        LIMIT 1;
+    `;
+    return database.executar(instrucaoSql);
+}
+
 function personagemUser(idUsuario) {
     var instrucaoSql = `
         SELECT Q.nome, COUNT(*) AS votos
@@ -55,7 +68,7 @@ function caracteristicaUser(idUsuario) {
         FROM Resultado R
         JOIN Caracteristica C ON R.fkCaracteristica = C.idCaracteristica
         WHERE R.fkUsuario = ${idUsuario}
-        GROUP_BY C.nomeCaracteristica
+        GROUP BY C.nomeCaracteristica
         ORDER BY votos DESC
         LIMIT 5;
     `;
@@ -67,5 +80,6 @@ module.exports = {
     cadastrar,
     buscarResultadoFkUsuario,
     personagemUser,
-    caracteristicaUser
+    caracteristicaUser, 
+    buscarUltimoPersonagem
 };

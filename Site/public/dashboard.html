@@ -43,34 +43,33 @@
             <h2 class="titulo">Dashboard  |  Quiz Família Addams</h2>
             <div class="cards">
                 <div class="card1">
-                    <h3>Jogadores Registrados<br /></h3><br>
+                    <h3>Jogadores Registrados:<br /></h3><br>
                     
                     <h3 id="totalJogadores">0</h3>
                 </div>
                 <div class="card2">
-                    <h3>Tentativas Realizadas <br /></h3>
+                    <h3>Tentativas Realizadas:<br /></h3>
                     <br /> 
                     <h3 id="totalTentativas"></h3>
                     <br /><br /><br /><br />
                 </div>
                 <div class="card3">
-                    <h3>Resultado Personagem<br/></h3><br>
+                    <h3>Resultado Personagem:<br/></h3><br>
                     <h3 id="personagemTop">-</h3>
                 </div>
                 <div class="card4">
-                    <h3>Características em Comuns<br /></h3><br>
+                    <h3>Características Comuns:<br /></h3><br>
                     <h3 id="caracTop">-</h3>
                 </div>
             </div>
             <div class="graficos-grid">
                 <div class="box-grafico1">
-                    <h2>Popularidade das Caracteristicas</h2>
+                    <h2>Popularidade das Caracteristicas:</h2>
                     <br /><br />
                     <canvas id="barraCaracteristicas"></canvas>
                 </div>
                 <div class="box-grafico2">
-                    <h2>Resultados</h2>
-                    <br />
+                    <h2>Porcentagem dos seus Resultados:</h2>
                     <canvas id="pizzaPersonagens"></canvas>
                 </div>
             </div>
@@ -116,7 +115,7 @@
                 if (data.personagens.length > 0) {
                     let topPerso = data.personagens[0];
                     document.getElementById("personagemTop").innerText =
-                        `${topPerso.nome} – ${topPerso.votos} votos`;
+                        `${topPerso.nome} `;
                 } else {
                     document.getElementById("personagemTop").innerText = "-";
                 }
@@ -124,7 +123,7 @@
                 if (data.caracteristicas.length > 0) {
                     let topCarac = data.caracteristicas[0];
                     document.getElementById("caracTop").innerText =
-                        `${topCarac.nomeCaracteristica} – ${topCarac.votos} votos`;
+                        `${topCarac.nomeCaracteristica}`;
                 } else {
                     document.getElementById("caracTop").innerText = "-";
                 }

@@ -23,5 +23,9 @@ router.get("/caracteristicaUser/:idUsuario", function(req, res) {
     resultadoController.caracteristicaUser(req, res);
 });
 
+router.get("/ultimoPersonagem/:idUsuario", function (req, res) {
+    resultadoController.obterUltimoPersonagem(req, res);
+});
+
 
 module.exports = router;

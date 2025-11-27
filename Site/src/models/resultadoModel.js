@@ -38,7 +38,7 @@ function buscarResultadoFkUsuario(idUsuario) {
 
 function buscarUltimoPersonagem(idUsuario) {
     var instrucaoSql = `
-        SELECT 
+            SELECT 
             Q.nome AS ultimoPersonagem
         FROM Resultado R
         JOIN Quiz Q ON R.fkQuiz = Q.idQuiz
@@ -64,7 +64,7 @@ function personagemUser(idUsuario) {
 
 function caracteristicaUser(idUsuario) {
     var instrucaoSql = `
-        SELECT C.nomeCaracteristica, COUNT(*) AS votos
+         SELECT C.nomeCaracteristica, COUNT(*) AS votos
         FROM Resultado R
         JOIN Caracteristica C ON R.fkCaracteristica = C.idCaracteristica
         WHERE R.fkUsuario = ${idUsuario}

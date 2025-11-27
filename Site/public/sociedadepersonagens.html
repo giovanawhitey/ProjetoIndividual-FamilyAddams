@@ -58,7 +58,7 @@
           <div class="imagem-ods2">
             <img src="./assets/imgs/ODS12.png" alt="ods">
           </div>
-        
+
           <p class="titulo-ods" style="color: darkorange;"><br>
             ODS 12 - Consumo e Produção Responsáveis
           </p> <br>
@@ -83,7 +83,7 @@
         <img id="foto" src="" alt="Personagem">
         <div class="info-personagem">
           <div id="nome" class="nome"></div>
-          <div id="desc"class="desc"></div>
+          <div id="desc" class="desc"></div>
         </div>
       </div>
 
@@ -98,17 +98,23 @@
     Quer descobrir <b>qual membro da Família Addams você seria?</b>
     <br><br>
     <a href="cadastro.html"><b>Cadastre-se e faça o quiz!</b>
-      
+
     </a>
   </div>
-
 
   <div class="footer">
     <div class="container">
       <h4>
-        Feito com amor por Giovana Branquinho Addams &hearts; SPTechSchool &copy; 2025
+        Feito com amor por Giovana Branquinho Addams &hearts; — SPTechSchool &copy; 2025
       </h4>
-      <p style="color: violet;">giovana.branquinho@sptech.school &hearts;</p>
+
+      <p class="email-footer">giovana.branquinho@sptech.school &hearts;</p>
+
+      <div class="footer-icons">
+        <a href="https://github.com/gibr4nquinho/ProjetoIndividual-FamilyAddams" target="_blank">
+          <img src="./assets/imgs/githubfooter.png" class="github-icon">
+        </a>
+      </div>
     </div>
   </div>
 </body>
@@ -175,17 +181,17 @@
 
   function proximo() {
     indice++;
-    if (indice >= personagens.length){ 
+    if (indice >= personagens.length) {
       indice = 0;
     }
     mostrar();
-  
+
   }
 
   function voltar() {
     indice--;
-    if (indice < 0){
-    indice = personagens.length - 1;
+    if (indice < 0) {
+      indice = personagens.length - 1;
     }
     mostrar();
   }

@@ -232,18 +232,62 @@ body {
   background-color: rgb(73, 2, 2);     
 }
 
-.footer {
-  background-color: #111010;
-  width: 100%;
-  height: var(--tamanho-footer);
-  color: #fff;
+.alerta_erro {
+  position: absolute;
+  margin-top: 430px;
   display: flex;
   justify-content: center;
-  align-items: center;
-  margin-top: auto;
+  width: 350px;
+ margin-left: 475px;
+  gap: -20px;
 }
 
-.footer .version {
-  font-size: 12px;
+.card_erro {
+  display: none;
+  background-color: #2a0a0a;
+  padding: 10px 15px;
+  color: #ffb3b3;
+  border-radius: 8px;
+  border: 1px solid #4a0000;
 }
 
+.footer {
+    width: 100%;
+    padding: 25px 0;
+    background: #0b0b0b;
+    border-top: 2px solid #3a3a3a;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.footer h4 {
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-weight: normal;
+}
+
+.email-footer {
+    margin-top: 5px;
+    color: rgb(150, 40, 40);
+    font-size: 14px;
+    font-family: 'Cinzel', serif;
+}
+
+.footer-icons {
+    margin-top: 10px;
+}
+
+.github-icon {
+    width: 28px;
+    height: 28px;
+    filter: invert(100%);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.github-icon:hover {
+    transform: scale(1.2);
+    filter: invert(100%) drop-shadow(0 0 6px #fff);
+}

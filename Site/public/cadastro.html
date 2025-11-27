@@ -13,89 +13,99 @@
   <link rel="icon" href="./assets/icon/logosiyte.png">
   <link rel="preconnect" href="https://fonts.gstatic.com">
 </head>
+
 <body>
 
-   <div class="header">
-        <div class="container">
-            <h1 class="titulo"></h1>
-            <ul class="navbar">
-                <li>
-                    <a href="index.html">Inicio</a>
-                </li>
-                <li>
-                    <a href="index.html">Minha História</a>
-                </li>
-                <li>
-                    <a href="index.html">Origem</a>
-                </li>
-                <li><a href="sociedadepersonagens.html">Sociedade</a></li>
-               <li><a href="sociedadepersonagens.html">Personagens</a></li>
-              <li><a href="cadastro.html" class="btn-cadastro">Cadastro</a></li>
+  <div class="header">
+    <div class="container">
+      <h1 class="titulo"></h1>
+      <ul class="navbar">
+        <li>
+          <a href="index.html">Inicio</a>
+        </li>
+        <li>
+          <a href="index.html">Minha História</a>
+        </li>
+        <li>
+          <a href="index.html">Origem</a>
+        </li>
+        <li><a href="sociedadepersonagens.html">Sociedade</a></li>
+        <li><a href="sociedadepersonagens.html">Personagens</a></li>
+        <li><a href="cadastro.html" class="btn-cadastro">Cadastro</a></li>
         <li><a href="login.html" class="btn-login">Login</a></li>
-               
-            </ul>
-        </div>
+
+      </ul>
     </div>
+  </div>
 
 
   <div class="banner-cadastro">
- <div class="login">
-    <div class="alerta_erro">
-      <div class="card_erro" id="cardErro">
-        <span id="mensagem_erro"></span>
+    <div class="login">
+
+      <div class="card-box">
+
+        <h1>Bem-vindo à Família Addams!</h1>
+
+        <div class="input-group">
+          <label class="label">Insira seu nome completo:</label>
+          <input class="input" id="nome_input" type="text" placeholder="Seu nome">
+        </div>
+
+        <div class="input-group">
+          <label class="label">Insira seu e-mail:</label>
+          <input class="input" id="email_input" type="text" placeholder="meuemail@provedor.com">
+        </div>
+
+        <div class="input-group">
+          <label class="label">Insira sua senha:</label>
+          <input class="input" id="senha_input" type="password" placeholder="******">
+        </div>
+
+        <div class="input-group">
+          <label class="label">Confirme a senha escolhida:</label>
+          <input class="input" id="confirmacao_senha_input" type="password" placeholder="******">
+        </div>
+
+        <button class="botao" onclick="cadastrar()">Cadastrar-se</button>
+        <div class="alerta_erro">
+          <div class="card_erro" id="cardErro">
+            <div id="mensagem_erro">
+            </div>
+          </div>
+        </div>
+        <div class="log-text">
+          <span>Já tem conta?</span>
+          <a class="link-login" href="login.html">Entrar</a>
+        </div>
+
       </div>
-  <div class="card-box">
 
-    <h1>Bem-vindo à Família Addams!</h1>
-
-    <div class="input-group">
-      <label class="label">Insira seu nome completo:</label>
-      <input class="input" id="nome_input" type="text" placeholder="Seu nome">
-    </div>
-
-    <div class="input-group">
-      <label class="label">Insira seu e-mail:</label>
-      <input class="input" id="email_input" type="text" placeholder="meuemail@provedor.com">
-    </div>
-
-    <div class="input-group">
-      <label class="label">Insira sua senha:</label>
-      <input class="input" id="senha_input" type="password" placeholder="******">
-    </div>
-
-    <div class="input-group">
-      <label class="label">Confirme a senha escolhida:</label>
-      <input class="input" id="confirmacao_senha_input" type="password" placeholder="******">
-    </div>
-
-    <button class="botao" onclick="cadastrar()">Cadastrar-se</button>
-
-    <div class="log-text">
-      <span>Já tem conta?</span>
-      <a class="link-login" href="login.html">Entrar</a>
     </div>
 
   </div>
+  </div>
 
+   <div class="footer">
+    <div class="container">
+        <h4>
+            Feito com amor por Giovana Branquinho Addams &hearts; — SPTechSchool &copy; 2025
+        </h4>
+
+        <p class="email-footer">giovana.branquinho@sptech.school &hearts;</p>
+
+        <div class="footer-icons">
+            <a href="https://github.com/gibr4nquinho/ProjetoIndividual-FamilyAddams" target="_blank">
+                <img src="./assets/imgs/githubfooter.png" class="github-icon">
+            </a>
+        </div>
+    </div>
 </div>
-
-    </div>
-  </div>
-
-  <div class="footer">
-     <div class="container">
-      <h4>Feito com amor por Giovana Branquinho Addams &hearts; SPTechSchool&copy; 2025 
-        <p style="color: rgb(94, 14, 0);">              giovana.branquinho@sptech.school &hearts;</p>
-      </h4>
-     
-    </div>
-  </div>
 </body>
 
 </html>
 
 <script>
-   function cadastrar() {
+  function cadastrar() {
 
     var nomeVar = nome_input.value;
     var emailVar = email_input.value;
@@ -109,7 +119,7 @@
       confirmacaoSenhaVar == ""
     ) {
       cardErro.style.display = "block";
-      mensagem_erro.innerHTML = "(Mensagem de erro para todos os campos em branco)";
+      mensagem_erro.innerHTML = "Preencha todos os campos para prosseguir.";
       return false;
     } else {
       setInterval(sumirMensagem, 5000);
@@ -159,5 +169,5 @@
     cardErro.style.display = "none";
   }
 
-  
+
 </script>

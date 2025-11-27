@@ -129,13 +129,15 @@ body {
 .social { 
   background-image: url("../assets/imgs/possivelfundo2.webp");
   background-repeat: no-repeat;
-background-size: cover;
-background-position: center;
+  background-size: cover;
+  background-position: center;
+   width: 100%;
+  height: 140%;
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 120px 0;
-  min-height: 600px;
+  min-height: 680px;
   flex: 1;
 }
 
@@ -144,6 +146,7 @@ background-position: center;
   flex-direction: column;
   align-items: flex-start;
   width: 100%;
+  height: 100%;
   
 }
 
@@ -259,17 +262,39 @@ background-position: center;
 
 
 .footer {
-  background-color: #111010ab;
-  width: 100%;
-  height: 100px;
-  color: #fffdfd;
-  display: flex;
-  font-size: 15px;
-  justify-content: center;
-  align-items: center;
-  margin-top: auto;
+    width: 100%;
+    height: 30%;
+    padding: 25px 0;
+    background: #0b0b0b;
+    border-top: 2px solid #3a3a3a;
+    text-align: center;
+    margin-top: 40px;
 }
 
-.footer .version {
-  font-size: 12px;
+.footer h4 {
+    color: #fff;
+    font-size: 16px;
+    margin: 0;
+    font-family: 'Cinzel', serif;
+    font-weight: normal;
 }
+
+.email-footer {
+    margin-top: 5px;
+    color: rgb(150, 40, 40);
+    font-size: 14px;
+    font-family: 'Cinzel', serif;
+}
+
+.footer-icons {
+    margin-top: 10px;
+}
+
+.github-icon {
+    width: 28px;
+    height: 28px;
+    filter: invert(100%);
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+

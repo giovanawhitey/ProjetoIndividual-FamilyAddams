@@ -19,7 +19,6 @@ var quizRouter = require("./src/routes/quiz");
 var dashboardRouter = require("./src/routes/dashboard");
 var caracteristicaRouter = require("./src/routes/caracteristica");
 var resultadoRouter = require("./src/routes/resultado");
-var tentativaRouter = require("./src/routes/tentativa"); 
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -33,7 +32,6 @@ app.use("/quiz", quizRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/caracteristica", caracteristicaRouter);
 app.use("/resultado", resultadoRouter);
-app.use("/tentativa", tentativaRouter);
 
 
 app.listen(PORTA_APP, function () {

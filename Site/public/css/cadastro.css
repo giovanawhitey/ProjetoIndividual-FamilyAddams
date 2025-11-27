@@ -15,9 +15,8 @@
 }
 
 body {
-    min-height: 100vh;
-  background-color: #00000086;
-  display: flex;
+  min-height: 100vh;
+  background: #0b0b0b;  
   flex-direction: column;
 }
 
@@ -100,16 +99,7 @@ body {
   background-position: center;
 }
 
-.banner-cadastro video {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  z-index: -1;
-  filter: brightness(50%);
-}
+
 
 .card-box {
   display: flex;
@@ -156,6 +146,7 @@ body {
     border: 2px solid #05060f;
     transition: 0.3s;
     margin: 0 auto 20px auto;
+    color: white;
 }
 
 .input:hover,
@@ -176,7 +167,7 @@ body {
 
 .input-group:hover .label,
 .input:focus + .label {
-  color: #ffffffc2;
+  color: #ffffff;
 }
 
 .goBack {
@@ -198,7 +189,7 @@ body {
 }
 
 .log-text a {
-  color: #05060f99;
+  color: #fcfcff;
   width: fit-content;
   height: fit-content;
 }
@@ -244,9 +235,9 @@ body {
 
 .card_erro {
   display: none;
-  background-color: #2a0a0a;
+  background-color: #5d5a5a8f;
   padding: 10px 15px;
-  color: #ffb3b3;
+  color: #ffffff;
   border-radius: 8px;
   border: 1px solid #4a0000;
 }

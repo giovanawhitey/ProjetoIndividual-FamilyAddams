@@ -18,6 +18,7 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+      background: #0b0b0b;
 }
 
 .header {
@@ -89,16 +90,16 @@ background-color: #292828a9;
 }
 
 .login {
-     height: calc(140vh - var(--tamanho-header));
-    background-image: url(../assets/imgs/fundocadast.png);
-    width: 100%;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    background-size: cover;
-    background-position: center;
+  height: calc(120vh - var(--tamanho-header));
+  background-image: url("../assets/imgs/fundocadast.png");
+  width: 100%;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  background-size: cover;
+  background-position: center;
   }
 
 .card-login {

@@ -34,16 +34,21 @@ display: flex;
     margin-bottom: 100px;
     width: 950px;
     background: #111;
+    opacity: 0.89;
     border: 1px solid #444;
     padding: 15px;
     border-radius: 8px;
     color: #e5dcdc;
 }
 
+.container1 .frase{
+  font-size: 25px;
+}
 
 .janela {
   display: flex;
   min-height: 100vh;
+  background-image: url('../assets/imgs/the-addams-family-collage-bn3ww4zgpcmyrxmp.webp');
 }
 
 

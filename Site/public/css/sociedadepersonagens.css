@@ -20,8 +20,7 @@ html {
 
 body {
   min-height: 100vh;
-  background: #000;
-  display: flex;
+  background: #0b0b0b;
   flex-direction: column;
 }
 
@@ -134,9 +133,10 @@ body {
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  width: 80%;
+  width: 1460px;
   margin-top: 40px;
   flex-wrap: 10px;
+  
 }
 
 .box {
@@ -145,7 +145,7 @@ body {
   border: 1px solid #000000;
   border-radius: 50px;
   padding: 50px;
-  width: 80%;
+  width: 90%;
   height: auto;
 
 }
@@ -169,7 +169,8 @@ body {
 }
 
 .box img {
-  width: 610px;
+  width: 510px;
+  border-radius: 12px;
   border: 1px solid #444;
   display: block;
   margin: auto;
@@ -185,9 +186,7 @@ body {
 
 .box p {
   font-size: 25px;
-  font-family: "Keania One", cursive;
-  margin: 0;
-  color: aliceblue;
+    font-family: 'Cinzel', serif;  color: aliceblue;
 }
 
 .frase {

@@ -107,8 +107,8 @@ body {
   gap: 1px;            
   width: 450px;         
   padding: 18px;       
-   background-color: rgba(0, 0, 0, 0.4);
-  border: 2px solid #2d2d2d;
+   background-color: rgba(0, 0, 0, 0.668);
+  border: 2px solid #1c1c1c;
   border-radius: 10px;
   text-align: center;
   color: #ff0606;
@@ -212,7 +212,7 @@ body {
   font-size: 16px;               
   font-weight: bold;            
 
-  border: 2px solid rgb(0, 0, 0);      
+  border: 2px solid rgb(255, 0, 0);      
   border-radius: 8px;            
 
   cursor: pointer;               

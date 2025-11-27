@@ -158,16 +158,20 @@ background-color: #292828a9;
 
 
 .botao {
-  width: 100%;
+   width: 100%;
   padding: 12px;
-  border-radius: 10px;
-  border: 2px solid #000;
-  background-color: #000;
-  color: white;
-  font-size: 18px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: .2s;
+  margin-top: 20px;
+
+  background-color: rgba(8, 8, 8, 0.521);       
+  color: white;                 
+  font-size: 16px;               
+  font-weight: bold;            
+
+  border: 2px solid rgb(255, 0, 0);      
+  border-radius: 8px;            
+
+  cursor: pointer;               
+  transition: 0.3s;
 }
 
 .botao:hover {

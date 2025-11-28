@@ -12,7 +12,7 @@ function carregarKpis(idUsuario) {
         GROUP BY q.idQuiz, q.nome
         ORDER BY quantidade_escolhas DESC;
     `;
-  return database.executar(instrucao);
+  return database.executar(instrucaoSql);
 }
 
 function carregarTopPersonagens(idUsuario) {
@@ -28,7 +28,7 @@ function carregarTopPersonagens(idUsuario) {
         ORDER BY quantidade_escolhas DESC
         LIMIT 5;
     `;
-  return database.executar(instrucao);
+  return database.executar(instrucaoSql);
 }
 
 function listarPersonagensComuns(idUsuario) {
@@ -44,7 +44,7 @@ function listarPersonagensComuns(idUsuario) {
         ORDER BY quantidade_escolhas DESC
         LIMIT 1;
     `;
-  return database.executar(instrucao);
+  return database.executar(instrucaoSql);
 }
 
 module.exports = {

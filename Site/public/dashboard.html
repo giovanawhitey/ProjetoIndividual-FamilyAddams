@@ -74,7 +74,7 @@
                     <canvas id="barraCaracteristicas"></canvas>
                 </div>
                 <div class="box-grafico2">
-                    <h2>Porcentagem dos seus Resultados:</h2>
+                    <h2>Seus Resultados:</h2>
                     <canvas id="pizzaPersonagens"></canvas>
                 </div>
             </div>
@@ -86,8 +86,8 @@
 <script>
     document.getElementById('b_usuario').innerText = sessionStorage.NOME_USUARIO || "Addams";
 
-    let graficoLinha = null;
     let graficoBarra = null;
+    let graficoPizza = null;
 
     function obterDados() {
         atualizarDashboard();
@@ -143,22 +143,22 @@
                     countPersonagem[item.nome] = item.votos;
                 });
 
-                plotarGraficoLinha(countCaracteristica);
-                plotarGraficoBarra(countPersonagem);
+                plotarGraficoBarra(countCaracteristica);
+                plotarGraficoPizza(countPersonagem);
             })
             .catch(err => console.error("Erro ao carregar dados do usuário:", err));
     }
 
-    function plotarGraficoLinha(countCaracteristica) {
+    function plotarGraficoBarra(countCaracteristica) {
         const labels = Object.keys(countCaracteristica);
         const valores = Object.values(countCaracteristica);
         const ctx = document.getElementById('barraCaracteristicas').getContext('2d');
 
-        if (graficoLinha) {
-            graficoLinha.destroy();
+        if (graficoBarra) {
+            graficoBarra.destroy();
         }
 
-        graficoLinha = new Chart(ctx, {
+        graficoBarra = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels,
@@ -170,7 +170,10 @@
                         'rgb(36, 10, 10)',
                         'rgb(255, 30, 40)',
                         'rgb(40, 0, 10)',
-                        'rrgb(18, 2, 4)',
+                        'rgb(18, 2, 4)',
+                        'rgb(201, 53, 53)',
+                        'rgb(140, 85, 85)',
+
                     ],
                     borderWidth: 2
                 }]
@@ -185,17 +188,17 @@
         });
     }
 
-    function plotarGraficoBarra(countPersonagem) {
+    function plotarGraficoPizza(countPersonagem) {
         const labels = Object.keys(countPersonagem);
         const valores = Object.values(countPersonagem);
 
         const ctx = document.getElementById('pizzaPersonagens').getContext('2d');
 
-        if (graficoBarra) {
-            graficoBarra.destroy();
+        if (graficoPizza) {
+            graficoPizza.destroy();
         }
 
-        graficoBarra = new Chart(ctx, {
+        graficoPizza = new Chart(ctx, {
             type: 'pie',
             data: {
                 labels,

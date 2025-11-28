@@ -15,4 +15,4 @@ A proposta foi desenvolver uma página temática com visual sombrio, fontes gót
 
 🖤 <a href="https://github.com/gibr4nquinho">Feito por Giovana aluna da SpTechSchool@2025 </a> 
 
-# 🖤 Projeto Finalizado.
+# 🖤 Projeto Finalizado made by Giovana Querobino Branquinho

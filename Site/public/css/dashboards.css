@@ -205,8 +205,9 @@ body {
 
 .box-grafico1 {
   background: white;
+  font-size: 15px;
    width: 700px;
-  height: 480px;
+  height: 455px;
   padding: 5px;
   text-align: center;
   display: flex;
@@ -221,8 +222,9 @@ body {
 
 .box-grafico2 {
   background: white;
+    font-size: 15px;
   width: 400px;
-  height: 480px;
+  height: 455px;
   padding: 5px;
   text-align: center;
   display: flex;

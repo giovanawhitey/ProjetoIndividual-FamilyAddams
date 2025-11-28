@@ -14,3 +14,5 @@ A proposta foi desenvolver uma página temática com visual sombrio, fontes gót
 🖤 <a href="https://trello.com/invite/b/68fda30064a5e906d005c2c6/ATTIaa87b92bf96def3ff2665576cd50f441DDD0906B/projetoindividualfamilyaddams" target="_blank">Trello </a> 
 
 🖤 <a href="https://github.com/gibr4nquinho">Feito por Giovana aluna da SpTechSchool@2025 </a> 
+
+# 🖤 Projeto Finalizado.

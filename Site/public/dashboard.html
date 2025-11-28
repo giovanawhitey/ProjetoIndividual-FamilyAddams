@@ -19,46 +19,47 @@
                 <img src="./assets/icon/addams-family-seeklogo.png" class="logo" width="210px" height="90px" />
 
 
-<div class="user-photo">
-    <img src="./assets/imgs/possiveluser.png" width="85px" style="border-radius:50%; margin-top: 20px;">
-</div>
+                <div class="user-photo">
+                    <img src="./assets/imgs/logouserdashboardcortada.jpg" width="145px"
+                        style="border-radius:50%; margin-top: 20px;">
+                </div>
 
-            <div class="hello">
-                <h1>Olá, <span id="b_usuario">Addams</span>!<br> Seja Bem vindo!</h1>
-            </div>
+                <div class="hello">
+                    <h1>Olá, <span id="b_usuario">Addams</span>!<br> Seja Bem vindo!</h1>
+                </div>
 
-            <div class="btn-nav btn-selected">
-                <a href="./dashboard.html">
-                    <h3>Dashboard </h3>
-                </a>
-            </div>
-            <div class="btn-nav">
-                <a href="./quiz.html">
-                    <h3>Quiz</h3>
-                </a>
-            </div>
+                <div class="btn-nav btn-selected">
+                    <a href="./dashboard.html">
+                        <h3>Dashboard </h3>
+                    </a>
+                </div>
+                <div class="btn-nav">
+                    <a href="./quiz.html">
+                        <h3>Quiz</h3>
+                    </a>
+                </div>
 
-            <div class="btn-logout" onclick="limparSessao()">
-                <h3>Sair</h3>
+                <div class="btn-logout" onclick="limparSessao()">
+                    <h3>Sair</h3>
+                </div>
             </div>
         </div>
- </div>
         <div class="dash-content">
-            <h2 class="titulo">Dashboard  |  Quiz Família Addams</h2>
+            <h2 class="titulo">Dashboard | Quiz Família Addams</h2>
             <div class="cards">
                 <div class="card1">
                     <h3>Jogadores Registrados:<br /></h3><br>
-                    
+
                     <h3 id="totalJogadores">0</h3>
                 </div>
                 <div class="card2">
                     <h3>Tentativas Realizadas:<br /></h3>
-                    <br /> 
+                    <br />
                     <h3 id="totalTentativas"></h3>
                     <br /><br /><br /><br />
                 </div>
                 <div class="card3">
-                    <h3>Personagem mais Exibido:<br/></h3><br>
+                    <h3>Personagem mais Exibido:<br /></h3><br>
                     <h3 id="personagemTop">-</h3>
                 </div>
                 <div class="card4">
@@ -165,11 +166,11 @@
                     label: 'Popularidade das Características',
                     data: valores,
                     backgroundColor: [
-                        'rgb(15, 15, 15)',
-                        'rgb(70, 0, 90)',
-                        'rgb(15, 20, 92)',
-                        'rgb(102, 7, 140)',
-                        'rgb(56, 135, 63)'
+                        'rgb(84, 1, 1)',
+                        'rgb(36, 10, 10)',
+                        'rgb(255, 30, 40)',
+                        'rgb(40, 0, 10)',
+                        'rrgb(18, 2, 4)',
                     ],
                     borderWidth: 2
                 }]
@@ -201,11 +202,11 @@
                 datasets: [{
                     data: valores,
                     backgroundColor: [
-                        'rgb(15, 15, 15)',
-                        'rgb(70, 0, 90)',
-                        'rgb(15, 20, 92)',
-                        'rgb(102, 7, 140)',
-                        'rgb(56, 135, 63)'
+                          'rgb(84, 1, 1)',
+                        'rgb(36, 10, 10)',
+                        'rgb(255, 30, 40)',
+                        'rgb(40, 0, 10)',
+                        'rrgb(18, 2, 4)',
                     ]
                 }]
             },
@@ -218,5 +219,3 @@
         });
     }
 </script>
-
-    

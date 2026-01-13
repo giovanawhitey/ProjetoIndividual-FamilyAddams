@@ -13,4 +13,4 @@ A proposta foi desenvolver uma página temática com visual sombrio, quiz e dash
 
 🖤 <a href="https://trello.com/invite/b/68fda30064a5e906d005c2c6/ATTIaa87b92bf96def3ff2665576cd50f441DDD0906B/projetoindividualfamilyaddams" target="_blank">Trello </a> 
 
-# 🖤 Projeto Finalizado made by Giovana Querobino Branquinho
+# 🖤 Projeto Finalizado made by Giovana 
